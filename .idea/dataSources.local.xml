@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="PY-233.13135.95">
-    <data-source name="workers" uuid="74447782-0e4e-441a-9301-40877cd02c48">
+    <data-source name="identifier.sqlite" uuid="a5cbc445-be7e-4518-8695-ef591304e2c0">
       <database-info product="SQLite" version="3.43.0" jdbc-version="4.2" driver-name="SQLite JDBC" driver-version="3.43.0.0" dbms="SQLITE" exact-version="3.43.0" exact-driver-version="3.43">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
       <auth-provider>no-auth</auth-provider>
       <schema-mapping>
         <introspection-scope>
@@ -13,7 +14,7 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="vehicles" uuid="501c5b1c-3c92-4dec-a7ea-5cde6e29e896">
+    <data-source name="vehiclesDB" uuid="c0b23ea7-3445-4d38-b0de-a39b8dc42f9d">
       <database-info product="SQLite" version="3.43.0" jdbc-version="4.2" driver-name="SQLite JDBC" driver-version="3.43.0.0" dbms="SQLITE" exact-version="3.43.0" exact-driver-version="3.43">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
