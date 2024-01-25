@@ -105,3 +105,41 @@ def queryVehicleSpecific():
     vehicle = row
     print(vehicle)
 
+def deleteVehicle():
+
+    global cursor
+
+    idNumber = int(input("Insert vehicle's ID to delete from DB: "))
+
+
+
+    cursor.execute("""DELETE FROM cars WHERE id = '{}'""".format(idNumber))
+    connection.commit()
+    cursor.execute("""DELETE FROM trucks WHERE id = '{}'""".format(idNumber))
+    connection.commit()
+    cursor.execute("""DELETE FROM utilities WHERE id = '{}'""".format(idNumber))
+    connection.commit()
+
+    print(f'Vehicle with ID {idNumber} has been deleted from the DB')
+
+def updateVehicleInfo():
+
+    global cursor
+
+    idNumber = int(input("Insert vehicle's ID to update information"))
+
+    licensePlate = input("License Plate: ")
+    year = input("Year: ")
+    weight = int(input("Weight: "))
+    maintenance = input("Maintenance: ")
+    extra = input("Mileage, Trip History or Type: ")
+
+    cursor.execute("""UPDATE cars SET licensePlate='{}', year='{}',
+     weight='{}', maintenance='{}', mileage='{}' WHERE id = '{}'""".format(
+        licensePlate, year, weight, maintenance, extra, idNumber
+    ))
+
+    connection.commit()
+
+    print(f'Information for Vehicle with ID {idNumber} have been updated: ')
+
