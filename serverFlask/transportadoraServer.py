@@ -1,4 +1,8 @@
 from flask import Flask, render_template
+import classes.vehicles.vehiclesDB
+
+
+vehicles = classes.vehicles.vehiclesDB.queryVehiclesGeneral()
 
 app = Flask(__name__)
 
@@ -8,7 +12,7 @@ def home():
 
 @app.route('/query')
 def query():
-    return render_template('query.html')
+    return render_template('query.html', vehicles=vehicles)
 
 
 if __name__=='__main__':

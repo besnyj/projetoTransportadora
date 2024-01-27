@@ -1,4 +1,4 @@
-from vehiclesParent import Vehicles
+from classes.vehicles.vehiclesParent import Vehicles
 
 class Cars(Vehicles):
     def __init__(self, id, licensePlate, year, weight, maintenance, mileage):

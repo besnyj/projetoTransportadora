@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="db development">
-      <change afterPath="$PROJECT_DIR$/serverFlask/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/serverFlask/templates/layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/serverFlask/templates/query.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/serverFlask/transportadoraServer.py" afterDir="false" />
+    <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="started flask development">
+      <change afterPath="$PROJECT_DIR$/serverFlask/vehiclesDB.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/vehicles/cars.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/vehicles/cars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/vehicles/trucks.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/vehicles/trucks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/vehicles/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/vehicles/utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/vehicles/vehiclesDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/vehicles/vehiclesDB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverFlask/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/serverFlask/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverFlask/templates/query.html" beforeDir="false" afterPath="$PROJECT_DIR$/serverFlask/templates/query.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/serverFlask/transportadoraServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/serverFlask/transportadoraServer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -61,6 +66,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "Python.main.executor": "Run",
     "Python.peopleDB.executor": "Run",
+    "Python.test.executor": "Run",
     "Python.transportadoraServer.executor": "Run",
     "Python.vehiclesDB.executor": "Run",
     "Python.vehiclesParent.executor": "Run",
@@ -107,7 +113,8 @@
       <workItem from="1706120693149" duration="4612000" />
       <workItem from="1706212219056" duration="5889000" />
       <workItem from="1706293763352" duration="321000" />
-      <workItem from="1706309937152" duration="2489000" />
+      <workItem from="1706309937152" duration="2573000" />
+      <workItem from="1706360918981" duration="3871000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -157,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706216960719</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="started flask development">
+      <option name="closed" value="true" />
+      <created>1706314574489</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706314574489</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,13 +194,15 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="db creation" />
     <MESSAGE value="db development" />
-    <option name="LAST_COMMIT_MESSAGE" value="db development" />
+    <MESSAGE value="started flask development" />
+    <option name="LAST_COMMIT_MESSAGE" value="started flask development" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/transportadora$peopleDB.coverage" NAME="peopleDB Coverage Results" MODIFIED="1705949864847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classes/people" />
+    <SUITE FILE_PATH="coverage/transportadora$test.coverage" NAME="test Coverage Results" MODIFIED="1706361379333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/transportadora$vehiclesParent.coverage" NAME="vehiclesParent Coverage Results" MODIFIED="1705949310979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classes/vehicles" />
-    <SUITE FILE_PATH="coverage/transportadora$transportadoraServer.coverage" NAME="transportadoraServer Coverage Results" MODIFIED="1706311912994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/serverFlask" />
-    <SUITE FILE_PATH="coverage/transportadora$vehiclesDB.coverage" NAME="vehiclesDB Coverage Results" MODIFIED="1706216439802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classes/vehicles" />
+    <SUITE FILE_PATH="coverage/transportadora$transportadoraServer.coverage" NAME="transportadoraServer Coverage Results" MODIFIED="1706364582904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/serverFlask" />
+    <SUITE FILE_PATH="coverage/transportadora$vehiclesDB.coverage" NAME="vehiclesDB Coverage Results" MODIFIED="1706364713231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classes/vehicles" />
     <SUITE FILE_PATH="coverage/transportadora$main.coverage" NAME="main Coverage Results" MODIFIED="1705946377109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

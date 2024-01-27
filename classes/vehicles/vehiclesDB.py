@@ -1,18 +1,16 @@
 import sqlite3
-from cars import Cars
-from trucks import Trucks
-from utilities import Utilities
-
-# CRIAR VARIAS TABELAS PARA DIFERENTES VEICULOS
-connection = sqlite3.connect("vehiclesDB.db")
-cursor = connection.cursor()
+from classes.vehicles.cars import Cars
+from classes.vehicles.trucks import Trucks
+from classes.vehicles.utilities import Utilities
 
 
 def insertVehicles():
 
+    connection = sqlite3.connect("vehiclesDB.db")
+    cursor = connection.cursor()
+
     print("Add new vehicle: \n1. Car \n2. Trucks \n3. Utility")
 
-    global cursor
 
     selection = int(input())
     # car
@@ -62,31 +60,34 @@ def insertVehicles():
         ))
         connection.commit()
 
+    connection.close()
+
 def queryVehiclesGeneral():
 
-    global cursor
+    connection = sqlite3.connect("vehiclesDB.db")
+    cursor = connection.cursor()
 
-    print("Cars:")
-    cursor.execute("""SELECT * FROM cars""")
-    rows = cursor.fetchall()
+    cursor.execute("""SELECT * FROM cars UNION SELECT * FROM trucks UNION SELECT * FROM utilities""")
+    results = cursor.fetchall()
 
-    for carInfo in rows:
-        print(carInfo)
+    resultsList = []
 
-    print("Trucks:")
-    cursor.execute("""SELECT * FROM trucks""")
-    rows = cursor.fetchall()
+    for vehicles in results:
 
-    for truckInfo in rows:
-        print(truckInfo)
+        resultsDict = {
+            'id': vehicles[0],
+            'licensePlate': vehicles[1],
+            'year': vehicles[2],
+            'weight': vehicles[3],
+            'maintenance': vehicles[4],
+            'mileage': vehicles[5]
+        }
 
-    print("Utility Vehicles:")
+        resultsList.append(resultsDict)
 
-    cursor.execute("""SELECT * FROM utilities""")
-    rows = cursor.fetchall()
 
-    for utInfo in rows:
-        print(utInfo)
+
+    return resultsList
 
 def queryVehicleSpecific():
 
@@ -107,11 +108,10 @@ def queryVehicleSpecific():
 
 def deleteVehicle():
 
-    global cursor
+    connection = sqlite3.connect("vehiclesDB.db")
+    cursor = connection.cursor()
 
     idNumber = int(input("Insert vehicle's ID to delete from DB: "))
-
-
 
     cursor.execute("""DELETE FROM cars WHERE id = '{}'""".format(idNumber))
     connection.commit()
@@ -122,9 +122,12 @@ def deleteVehicle():
 
     print(f'Vehicle with ID {idNumber} has been deleted from the DB')
 
+    connection.close()
+
 def updateVehicleInfo():
 
-    global cursor
+    connection = sqlite3.connect("vehiclesDB.db")
+    cursor = connection.cursor()
 
     idNumber = int(input("Insert vehicle's ID to update information"))
 
@@ -143,4 +146,5 @@ def updateVehicleInfo():
 
     print(f'Information for Vehicle with ID {idNumber} have been updated: ')
 
-#testestes
+    connection.close()
+
