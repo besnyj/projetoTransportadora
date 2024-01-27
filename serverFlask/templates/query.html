@@ -2,6 +2,10 @@
 {% block content %}
     {% for vehicle in vehicles %}
         <h1>vehicle</h1>
-        <p>{{vehicle.id}}</p>
+        <p>Vehicle ID: {{vehicle.id}}</p>
+        <p>License Plate: {{vehicle.licensePlate}}</p>
+        <p>Weight: {{vehicle.weight}}</p>
+        <p>Last Maintenance: {{vehicle.maintenance}}</p>
+        <p>Mileage, Last Trip, or Type: {{vehicle.mileage}}</p>
     {% endfor %}
 {% endblock content %}

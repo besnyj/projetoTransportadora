@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 import classes.vehicles.vehiclesDB
 
 
@@ -10,7 +10,7 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-@app.route('/query')
+@app.route('/queryVehicles')
 def query():
     return render_template('query.html', vehicles=vehicles)
 

@@ -64,7 +64,7 @@ def insertVehicles():
 
 def queryVehiclesGeneral():
 
-    connection = sqlite3.connect("vehiclesDB.db")
+    connection = sqlite3.connect("/Users/besnyj/Library/Mobile Documents/com~apple~CloudDocs/PythonStuff/ProjetoTransportadora/transportadora/classes/vehicles/vehiclesDB.db")
     cursor = connection.cursor()
 
     cursor.execute("""SELECT * FROM cars UNION SELECT * FROM trucks UNION SELECT * FROM utilities""")
