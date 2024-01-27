@@ -1,11 +1,25 @@
 {% extends "layout.html" %}
 {% block content %}
-    {% for vehicle in vehicles %}
-        <h1>vehicle</h1>
-        <p>Vehicle ID: {{vehicle.id}}</p>
-        <p>License Plate: {{vehicle.licensePlate}}</p>
-        <p>Weight: {{vehicle.weight}}</p>
-        <p>Last Maintenance: {{vehicle.maintenance}}</p>
-        <p>Mileage, Last Trip, or Type: {{vehicle.mileage}}</p>
-    {% endfor %}
+    <table>
+        <tr>
+            <th colspan="6">VEHICLES</th>
+        </tr>
+        <tr>
+            <th>Vehicle ID</th>
+            <th>License Plate</th>
+            <th>Weight</th>
+            <th>Last Maintenance</th>
+            <th>Mileage | Last Trip | Type</th>
+            <th>Update</th>
+        </tr>
+            {% for vehicle in vehicles %}
+            <tr>
+                    <td>{{vehicle.id}}</td>
+                    <td>{{vehicle.licensePlate}}</td>
+                    <td>{{vehicle.weight}}</td>
+                    <td>{{vehicle.maintenance}}</td>
+                    <td>{{vehicle.mileage}}</td>
+            </tr>
+            {% endfor %}
+    </table>
 {% endblock content %}

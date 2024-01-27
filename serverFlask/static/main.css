@@ -78,3 +78,14 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th, td {
+  background-color: #96D4D4;
+}
+th {
+  text-align: left;
+}
