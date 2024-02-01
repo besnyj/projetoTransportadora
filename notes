@@ -1,0 +1,29 @@
+- use ➜  flaskStudies git:(master) ✗ export FLASK_APP=app.py
+        ➜  flaskStudies git:(master) ✗ flask run
+        - on console to start running server
+
+- running the server in debug mod will show changes without the need to restart the server.
+- export FLASK_DEBUG=1
+
+- use if name==main to run the script instead of using flask
+- you can use the decorator @app.route('') to assign multiple routes for the same function.
+- import render_template so you can use html files instead of writing the html code on the .py file
+- create a layout.html as a parent for other html pages
+- always remember to return things from database as a dict
+- use absolute path to reference a DB for Flask
+- use code snipets and bootstrap for start layouts
+- css also useful for another types of bootstraps
+- ORM - allows us to access our database in easy-to-use obj obj oriented
+- create a SQLAlchemy for users login and users register
+- after creating the db = SQLAlchemy(app) variable and creating the
+    classes for each table, use >>>python3, >>>from 'file where db is' import db
+    an then >>>db.create_all().
+- db.session.add(object) will add the the info to the db
+- db.session.commit() will apply the changes to the db
+    - Object.query.all() or first() to query through info in the db
+    - filter_by() useful to find specific information based on parameters
+    - Object.query.filter_by.first() will return a non-list variable, useful to create objects for example user and etc.
+    - Object.query.get(id) will fetch variable with an specific id
+    - you can use for loops
+    - db.drop_all() will clean the database form all the tables
+
