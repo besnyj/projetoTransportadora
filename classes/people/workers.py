@@ -6,4 +6,3 @@ class Workers(People):
         super().__init__()
         self.role = None
         self.salary = None
-        self.shift = None

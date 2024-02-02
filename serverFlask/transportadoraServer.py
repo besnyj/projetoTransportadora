@@ -7,27 +7,11 @@ from flask_sqlalchemy import SQLAlchemy
 # vehicles = classes.vehicles.vehiclesDB.queryVehiclesGeneral()
 app = Flask(__name__)
 app.app_context().push() # gives the context to create the db from outside the application
+app.config['SECRET_KEY'] = '3a91a34e53b72ed106d2bd8e87fe37ae' # secret key for the app
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///workersAndVehicles.db'
+db = SQLAlchemy(app) # Creates the database instance. We can represent the db structures as classes or models
+from models import Driver, Mechanic, Vehicle
 
-# secret key for the app
-app.config['SECRET_KEY'] = '3a91a34e53b72ed106d2bd8e87fe37ae'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///driverAndTruck.db'
-
-# Creates the database instance. We can represent the db structures as classes or models
-db = SQLAlchemy(app)
-
-# this class handles the user info in the db made for this purpose
-class Driver(db.Model):
-    id = db.Column(db.Integer, primary_key=True) # creates the column for the id
-    username = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    licenses = db.Column(db.String(120), unique=True, nullable=False)
-    # image of the user
-    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
-    password = db.Column(db.String(60), nullable=False)
-
-    # how the object is printed whenever we print it our
-    def __repr__(self):
-        return "User('{}', '{}', '{}')".format(self.username, self.licenses, self.image_file)
 
 @app.route('/')
 @app.route('/home')
