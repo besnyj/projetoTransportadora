@@ -1,7 +1,6 @@
 # models are objects to input in the database
 from __main__ import db
 
-
 # this class handles the user info in the db made for this purpose
 class Driver(db.Model):
     id = db.Column(db.Integer, primary_key=True) # creates the column for the id
