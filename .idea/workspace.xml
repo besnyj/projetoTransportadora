@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="flask development">
-      <change afterPath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_Flask/run.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/static/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/query.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes" beforeDir="false" afterPath="$PROJECT_DIR$/notes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverFlask/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverFlask/instance/workersAndVehicles.db" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/instance/workersAndVehicles.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverFlask/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverFlask/static/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverFlask/templates/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverFlask/templates/layout.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverFlask/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverFlask/templates/query.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverFlask/templates/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/serverFlask/transportadoraServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" afterDir="false" />
-    </list>
+    <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="flask development" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,7 +127,7 @@
       <workItem from="1706629917627" duration="1176000" />
       <workItem from="1706631516420" duration="1647000" />
       <workItem from="1706789560881" duration="13526000" />
-      <workItem from="1706904221283" duration="13228000" />
+      <workItem from="1706904221283" duration="13649000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -282,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706915723543</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="flask development">
+      <option name="closed" value="true" />
+      <created>1706995574435</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1706995574435</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
