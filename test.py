@@ -9,4 +9,3 @@ humano = Humano(20)
 
 print(humano)
 
-# testing worked
