@@ -1,16 +1,7 @@
 from flask import Flask, render_template, url_for, flash, redirect
-# import log forms from the form file
-from forms import RegistrationForm, LoginForm
-from flask_sqlalchemy import SQLAlchemy
-
-# function to fetch all info from the vehicle database
-# vehicles = classes.vehicles.vehiclesDB.queryVehiclesGeneral()
-app = Flask(__name__)
-app.app_context().push() # gives the context to create the db from outside the application
-app.config['SECRET_KEY'] = '3a91a34e53b72ed106d2bd8e87fe37ae' # secret key for the app
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///workersAndVehicles.db'
-db = SQLAlchemy(app) # Creates the database instance. We can represent the db structures as classes or models
-from models import Driver, Mechanic, Vehicle
+from serverFlask.forms import RegistrationForm, LoginForm
+from serverFlask.models import User, Driver, Mechanic, Vehicle
+from serverFlask import app, db, bcrypt
 
 
 @app.route('/')
@@ -27,8 +18,12 @@ def home():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account Create for {form.username.data}!', 'success')
-        return redirect(url_for('home'))
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password='1234')
+        db.session.add(user) # add user to the db
+        db.session.commit() # save changes
+        flash('Your account has been created! You are now able to log in', category='success')
+        return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -42,7 +37,3 @@ def login():
             flash('Login Unsuccessful. Please check username and password', 'danger')
 
     return render_template('login.html', title='Login', form=form)
-
-
-if __name__=='__main__':
-    app.run(debug=True)

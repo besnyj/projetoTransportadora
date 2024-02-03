@@ -27,5 +27,18 @@
     - you can use for loops
     - db.drop_all() will clean the database form all the tables
 
-vehicle_1 = Vehicle(licensePlate='FII3838', type='Truck', year=2000, weight=10000, lastMaintenance='10/10/20', extra='MG-SP', worker_id=worker_1.id)
-worker_1 = Worker(username='Besnyj', email='besnyj@demo.com', password='1234', name='Nebesnyj', age=24, role='Driver', salary=2000, lastMaintenancePerformed='10/10/10', licenses='A1a', tripHistory= 'SP-RJ', department='ADM')
+-=-=- Package Structure
+
+- turning the app into a package will make all of the import more simple
+- create __init__ file
+- move models forms templates and static to the folder where __init__ is located
+- move all the imports and db initialization to the __init__.py file
+- create a new file for routes and move them from the main to the routes.py
+- turn main into run.py and import app from the package you just created
+
+ -=-=--==-=- user authentication -=-=-=-=
+
+- pip install bcrypt
+>>> from flask_bcrypt import Bcrypt
+>>> bcrypt = Bcrypt()
+>>> bcrypt.generate_password_hash('testing')
