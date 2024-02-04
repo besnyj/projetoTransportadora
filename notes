@@ -6,6 +6,7 @@
 - export FLASK_DEBUG=1
 
 - use if name==main to run the script instead of using flask
+- imgs to be displayed, need to go into the static folder
 - you can use the decorator @app.route('') to assign multiple routes for the same function.
 - import render_template so you can use html files instead of writing the html code on the .py file
 - create a layout.html as a parent for other html pages

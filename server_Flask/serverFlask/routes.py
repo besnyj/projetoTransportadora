@@ -7,17 +7,28 @@ from flask_login import login_user, current_user, logout_user
 @app.route('/')
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', methods=['GET', 'POST'])
 
-# @app.route('/queryVehicles')
-# def query():
-#     return render_template('query.html', vehicles=vehicles)
+@app.route('/logged', methods=['GET', 'POST'])
+def logged():
+    if not current_user.is_authenticated:
+        return redirect(url_for('home'))
+    user = User.query.filter_by(email=current_user.email).first()
+    return render_template('logged.html', user=user)
+
+@app.route('/drivers')
+def drivers():
+    if not current_user.is_authenticated:
+        return redirect(url_for('home'))
+    drivers = Driver.query.all()
+    return render_template('drivers.html', drivers=drivers)
+
 
 # add the methods so the function will accept getting and sending information
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))
+        return redirect(url_for('logged'))
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -37,7 +48,7 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
-            return redirect(url_for('home'))
+            return redirect(url_for('logged'))
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('login.html', title='Login', form=form)

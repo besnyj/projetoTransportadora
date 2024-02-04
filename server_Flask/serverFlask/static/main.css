@@ -96,3 +96,9 @@ th {
   margin-right: auto;
   width: 50%;
 }
+
+h2 {
+  position: absolute;
+  left: 100px;
+  top: 150px;
+}

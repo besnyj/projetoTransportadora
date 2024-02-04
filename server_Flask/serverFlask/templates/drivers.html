@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="navbar">
+  <a class="active" href="{{ url_for('logged') }}"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="#"><i class="fa fa-fw fa-search"></i> Vehicles</a>
+  <a href="{{ url_for('drivers') }}"><i class="fa fa-fw fa-envelope"></i> Drivers</a>
+    <a href="#"><i class="fa fa-fw fa-envelope"></i> Mechanics</a>
+      <a href="#"><i class="fa fa-fw fa-envelope"></i> Deliveries</a>
+  <a href="{{ url_for('logout') }}"><i class="fa fa-fw fa-user"></i> Logout</a>
+</div>
+    <table>
+        <tr>
+            <th colspan="7">DRIVERS</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Vehicles Assigned</th>
+            <th>Licenses</th>
+            <th>Trip History</th>
+            <th>Profile Pic</th>
+        </tr>
+            {%  for driver in drivers %}
+            <tr>
+                <td>{{ driver.name }}</td>
+                <td>{{ driver.age }}</td>
+                <td>{{ driver.salary }}</td>
+                <td>{{ driver.vehicleAssigned }}</td>
+                <td>{{ driver.licenses }}</td>
+                <td>{{ driver.tripHistory }}</td>
+                <td>{{ driver.image_file }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    {%  for driver in drivers %}
+    <tr>
+        <td>{{ driver.username }}</td>
+    </tr>
+    {%  endfor %}
+{% endblock content %}

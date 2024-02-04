@@ -3,8 +3,10 @@
 <style>
     h1 {text-align: center;}
 </style>
-    <img src="../static/amigos.jpeg" alt="Amigos" width="300" height="300" class="center">
+    <img src="../static/T1.jpg" alt="Amigos" width="300" height="300" class="center">
 <h1>Transportadora dos Amigos</h1>
-    <button type="button">Log In</button>
-    <button type="button">Register</button>
+    <div class="container">
+            <a href="{{ url_for('login') }}" >Login</a>
+            <a href="{{ url_for('register') }}" >Register</a>
+    </div>
 {% endblock content %}
