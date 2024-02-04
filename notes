@@ -42,3 +42,5 @@
 >>> from flask_bcrypt import Bcrypt
 >>> bcrypt = Bcrypt()
 >>> bcrypt.generate_password_hash('testing')
+
+pip install flask-login to add the feature of login to the app

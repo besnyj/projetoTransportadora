@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="flask development">
+      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/amigos.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/imgs/T1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/imgs/T111.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/people/peopleDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/classes/people/peopleDB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes" beforeDir="false" afterPath="$PROJECT_DIR$/notes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/static/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +61,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -87,6 +98,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -102,6 +114,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server_Flask/serverFlask/templates" />
+      <recent name="$PROJECT_DIR$/server_Flask/serverFlask/templates/imgs" />
       <recent name="$PROJECT_DIR$/server_Flask/serverFlask/instance" />
     </key>
   </component>
@@ -133,6 +147,7 @@
       <workItem from="1706789560881" duration="13526000" />
       <workItem from="1706904221283" duration="13770000" />
       <workItem from="1707027523256" duration="1317000" />
+      <workItem from="1707029613171" duration="5448000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -278,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706995637323</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="flask development">
+      <option name="closed" value="true" />
+      <created>1707032425493</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1707032425493</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +330,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/transportadora$peopleDB.coverage" NAME="peopleDB Coverage Results" MODIFIED="1705949864847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classes/people" />
     <SUITE FILE_PATH="coverage/transportadora$test.coverage" NAME="test Coverage Results" MODIFIED="1706905093964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/transportadora$run.coverage" NAME="run Coverage Results" MODIFIED="1707029259848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server_Flask" />
+    <SUITE FILE_PATH="coverage/transportadora$run.coverage" NAME="run Coverage Results" MODIFIED="1707051516810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server_Flask" />
     <SUITE FILE_PATH="coverage/transportadora$vehiclesParent.coverage" NAME="vehiclesParent Coverage Results" MODIFIED="1705949310979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classes/vehicles" />
     <SUITE FILE_PATH="coverage/transportadora$transportadoraServer.coverage" NAME="transportadoraServer Coverage Results" MODIFIED="1706913994092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/serverFlask" />
     <SUITE FILE_PATH="coverage/transportadora$vehiclesDB.coverage" NAME="vehiclesDB Coverage Results" MODIFIED="1706365154115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classes/vehicles" />

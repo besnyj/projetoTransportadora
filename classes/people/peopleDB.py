@@ -9,6 +9,4 @@ cursor.execute("CREATE TABLE workers ("
                "role TEXT,"
                "salary INTEGER,"
                "shift TEXT,"
-               "department TEXT,"
-               ""
-               ")")
+               "department TEXT")
