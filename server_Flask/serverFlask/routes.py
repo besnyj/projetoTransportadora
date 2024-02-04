@@ -3,7 +3,6 @@ from serverFlask.forms import RegistrationForm, LoginForm
 from serverFlask.models import User, Driver, Mechanic, Vehicle
 from serverFlask import app, db, bcrypt
 
-
 @app.route('/')
 @app.route('/home')
 def home():
@@ -19,7 +18,7 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, email=form.email.data, password='1234')
+        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(user) # add user to the db
         db.session.commit() # save changes
         flash('Your account has been created! You are now able to log in', category='success')
