@@ -7,6 +7,8 @@ from flask_login import login_user, current_user, logout_user
 @app.route('/')
 @app.route('/home')
 def home():
+    if current_user.is_authenticated:
+        return redirect(url_for('logged'))
     return render_template('home.html', methods=['GET', 'POST'])
 
 @app.route('/logged', methods=['GET', 'POST'])
@@ -42,7 +44,7 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))
+        return redirect(url_for('logged'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
