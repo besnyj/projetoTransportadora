@@ -26,7 +26,10 @@
                 <td>{{ driver.name }}</td>
                 <td>{{ driver.age }}</td>
                 <td>{{ driver.salary }}</td>
-                <td>{{ driver.vehicleAssigned }}</td>
+                <td>{% for vehicle in driver.vehiclesAssigned %}
+                    <a href=""><i class="fa fa-fw fa-user"></i> {{ vehicle }},</a>
+                    {% endfor %}
+                </td>
                 <td>{{ driver.licenses }}</td>
                 <td>{{ driver.tripHistory }}</td>
                 <td>{{ driver.image_file }}</td>

@@ -57,4 +57,7 @@ class Vehicle(db.Model):
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
 
     def __repr__(self):
-        return (f"Vehicle({self.id}, {self.licensePlate}, {self.type}, {self.year}, {self.weight}, {self.lastMaintenance}, {self.extra}, {self.image_file})")
+        return self.licensePlate
+
+    def vehicleAllInfo(self):
+        return f"Vehicle"

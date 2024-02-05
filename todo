@@ -6,3 +6,4 @@
 - finish user auth
 - redo models for drivers and mechanics - no username password and etc, it has been passed to the user model -- done!
 
+- drivers page - display vehicles assigned as the vehicle plate
