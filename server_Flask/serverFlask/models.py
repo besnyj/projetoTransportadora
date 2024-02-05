@@ -17,10 +17,7 @@ class User(db.Model, UserMixin):
 
 
 class Driver(db.Model):
-    id = db.Column(db.Integer, primary_key=True) # creates the column for the id
-    username = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(60), nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(60), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     role = db.Column(db.String(60), nullable=False)
@@ -28,24 +25,19 @@ class Driver(db.Model):
     vehiclesAssigned = db.relationship('Vehicle', backref='driver', lazy=True)
     licenses = db.Column(db.String(120), nullable=True)
     tripHistory = db.Column(db.String(60), nullable=True)
-    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
 
     # how the object is printed whenever we print it our
     def __repr__(self):
         return f"Driver({self.id}, {self.username}, {self.email}, {self.password}, {self.name}, {self.age}, {self.role}, {self.salary}, {self.vehiclesAssigned}, {self.licenses}, {self.tripHistory}, {self.image_file})"
 
 class Mechanic(db.Model):
-    id = db.Column(db.Integer, primary_key=True) # creates the column for the id
-    username = db.Column(db.String(20), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(60), nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(60), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     role = db.Column(db.String(60), nullable=False)
     salary = db.Column(db.Integer, nullable=False)
     vehiclesAssigned = db.relationship('Vehicle', backref='mechanic', lazy=True)
     lastMaintenancePerformed = db.Column(db.String(60), nullable=True)
-    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
 
     def __repr__(self):
         return f"Mechanic({self.id}, {self.username}, {self.email}, {self.password}, {self.name}, {self.age}, {self.role}, {self.salary}, {self.vehiclesAssigned}, {self.lastMaintenancePerformed}, {self.image_file})"

@@ -5,11 +5,29 @@ from serverFlask import app, db, bcrypt
 from flask_login import login_user, current_user, logout_user
 
 @app.route('/')
-@app.route('/home')
+@app.route('/home') # home is the front page when not logged
 def home():
     if current_user.is_authenticated:
         return redirect(url_for('logged'))
     return render_template('home.html', methods=['GET', 'POST'])
+
+@app.route('/vehicles')
+def vehicles():
+    if not current_user.is_authenticated:
+        return redirect(url_for('home'))
+    return render_template('vehicles.html')
+
+@app.route('/mechanics')
+def mechanics():
+    if not current_user.is_authenticated:
+        return redirect(url_for('home'))
+    return render_template('mechanics.html')
+
+@app.route('/parcels')
+def parcels():
+    if not current_user.is_authenticated:
+        return redirect(url_for('home'))
+    return render_template('parcels.html')
 
 @app.route('/logged', methods=['GET', 'POST'])
 def logged():
