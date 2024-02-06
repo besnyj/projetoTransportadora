@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, ValidationError
 from wtforms.validators import DataRequired, Length, Email, EqualTo
-from serverFlask.models import User
+from serverFlask.models import User, Driver, Mechanic
+from serverFlask import db
 
 
 class RegistrationForm(FlaskForm):
@@ -31,7 +32,7 @@ class RegistrationForm(FlaskForm):
         if user:
             raise ValidationError('The email is already in use. Please choose a different valid email')
 
-        
+
 class LoginForm(FlaskForm):
 
     email = StringField('Email',
@@ -56,3 +57,27 @@ class MechanicForm(FlaskForm):
     salary = StringField('Salary', validators=[DataRequired()])
     lastMaintenancePerformed = StringField('Last Maintenance Date', validators=[DataRequired()])
     submit = SubmitField('Register Mechanic')
+
+class VehicleForm(FlaskForm):
+
+    def driverIdLook(self):
+        driver = Driver.query.filter_by(name=self).first()
+        return driver.id
+
+
+    def mechanicIdLook(self):
+        try:
+            mechanic = Mechanic.query.filter_by(name=self).first()
+            return mechanic.id
+        except:
+            return 0
+
+    licensePlate = StringField('License Plate', validators=[DataRequired(),Length(max=8)])
+    type = StringField('Type', validators=[DataRequired()])
+    year = StringField('Year', validators=[DataRequired()])
+    weight = StringField('Weight', validators=[DataRequired()])
+    lastMaintenance = StringField('Date of last maintenance', validators=[DataRequired()])
+    driver_id = StringField("Assigned Driver's Name", validators=[DataRequired()])
+    mechanic_id = StringField("Assigned Mechanic's Name", validators=[DataRequired()])
+    extra = StringField("Extra", validators=[DataRequired()])
+    submit = SubmitField('Register Vehicle')

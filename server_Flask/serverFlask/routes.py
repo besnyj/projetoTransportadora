@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect
-from serverFlask.forms import RegistrationForm, LoginForm, DriverForm
+from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm
 from serverFlask.models import User, Driver, Mechanic, Vehicle
 from serverFlask import app, db, bcrypt
 from flask_login import login_user, current_user, logout_user
@@ -92,6 +92,23 @@ def addDriver():
         flash('Driver added to the Database', category='success')
         return redirect(url_for('logged'))
     return render_template('addDriver.html', form=form)
+
+@app.route('/addVehicle', methods=['GET', 'POST'])
+def addVehicle():
+    if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
+        return redirect(url_for('home'))
+
+    form = VehicleForm()
+    if form.validate_on_submit():
+        vehicle = Vehicle(licensePlate=form.licensePlate.data, type=form.type.data,
+                          year=form.year.data, weight=form.weight.data,
+                          lastMaintenance=form.lastMaintenance.data, driver_id=VehicleForm.driverIdLook(form.driver_id.data),
+                          mechanic_id=VehicleForm.mechanicIdLook(form.mechanic_id.data), extra=form.extra.data)
+        db.session.add(vehicle)
+        db.session.commit()
+        return redirect(url_for('logged'))
+    return render_template('addVehicle.html', form=form)
 
 @app.route('/logout')
 def logout():
