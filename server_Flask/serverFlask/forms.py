@@ -40,3 +40,18 @@ class LoginForm(FlaskForm):
         validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
+
+class DriverForm(FlaskForm):
+
+    name = StringField('Name', validators=[DataRequired()])
+    age = StringField('Age', validators=[DataRequired()])
+    salary = StringField('Salary', validators=[DataRequired()])
+    licenses = StringField('Licenses', validators=[DataRequired()])
+    tripHistory = StringField('Trip History', [DataRequired()])
+    submit = SubmitField('Add Driver')
+
+class MechanicForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    age = StringField('Age', validators=[DataRequired()])
+    salary = StringField('Salary', validators=[DataRequired()])
+    lastMaintenancePerformed = StringField('Last Maintenance Date', validators=[DataRequired()])

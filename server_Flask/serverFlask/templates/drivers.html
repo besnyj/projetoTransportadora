@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="navbar">
+<a class="active" href="{{ url_for('addDriver') }}"><i class="fa fa-fw fa-home"></i> Add Driver</a>
+<title>Drivers</title>
+<div class="navbar" style="align-items: center">
   <a class="active" href="{{ url_for('logged') }}"><i class="fa fa-fw fa-home"></i> Home</a>
   <a href="{{ url_for('vehicles') }}"><i class="fa fa-fw fa-search"></i> Vehicles</a>
   <a href="{{ url_for('drivers') }}"><i class="fa fa-fw fa-envelope"></i> Drivers</a>
@@ -8,7 +10,7 @@
       <a href="{{ url_for('parcels') }}"><i class="fa fa-fw fa-envelope"></i> Parcels</a>
   <a href="{{ url_for('logout') }}"><i class="fa fa-fw fa-user"></i> Logout</a>
 </div>
-    <table>
+    <table style="align-items: center">
         <tr>
             <th colspan="7">DRIVERS</th>
         </tr>

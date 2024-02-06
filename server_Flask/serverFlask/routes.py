@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect
-from serverFlask.forms import RegistrationForm, LoginForm
+from serverFlask.forms import RegistrationForm, LoginForm, AddDriver
 from serverFlask.models import User, Driver, Mechanic, Vehicle
 from serverFlask import app, db, bcrypt
 from flask_login import login_user, current_user, logout_user
@@ -77,3 +77,15 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+@app.route('/addDriver', methods=['GET', 'POST'])
+def addDriver():
+    form = AddDriver()
+    if form.validate_on_submit():
+        driver = Driver(name=form.name.data, age=form.age.data, salary=form.salary.data,
+                        licenses=form.licenses.data, tripHistory=form.tripHistory.data)
+        db.session.add(driver)
+        db.session.commit()
+        flash('Driver added to the Database', category='success')
+        return redirect(url_for('logged'))
+    return render_template('addDriver.html', form=form)
