@@ -1,9 +1,2 @@
-# html and routes, and buttons on home:
-    - vehicles -- done: route, button, html (navbar)
-    - mechanics -- done: route, button, html (navbar)
-    - parcels -- done: route, button, html (navbar)
-
-- finish user auth
-- redo models for drivers and mechanics - no username password and etc, it has been passed to the user model -- done!
-
-- drivers page - display vehicles assigned as the vehicle plate -- done
+# finish mechanics form and html page
+# finish vehicles form and html page

@@ -48,10 +48,11 @@ class DriverForm(FlaskForm):
     salary = StringField('Salary', validators=[DataRequired()])
     licenses = StringField('Licenses', validators=[DataRequired()])
     tripHistory = StringField('Trip History', [DataRequired()])
-    submit = SubmitField('Add Driver')
+    submit = SubmitField('Register Driver')
 
 class MechanicForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     age = StringField('Age', validators=[DataRequired()])
     salary = StringField('Salary', validators=[DataRequired()])
     lastMaintenancePerformed = StringField('Last Maintenance Date', validators=[DataRequired()])
+    submit = SubmitField('Register Mechanic')

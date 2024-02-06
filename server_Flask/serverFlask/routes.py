@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect
-from serverFlask.forms import RegistrationForm, LoginForm, AddDriver
+from serverFlask.forms import RegistrationForm, LoginForm, DriverForm
 from serverFlask.models import User, Driver, Mechanic, Vehicle
 from serverFlask import app, db, bcrypt
 from flask_login import login_user, current_user, logout_user
@@ -14,24 +14,28 @@ def home():
 @app.route('/vehicles')
 def vehicles():
     if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
     return render_template('vehicles.html')
 
 @app.route('/mechanics')
 def mechanics():
     if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
     return render_template('mechanics.html')
 
 @app.route('/parcels')
 def parcels():
     if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
     return render_template('parcels.html')
 
 @app.route('/logged', methods=['GET', 'POST'])
 def logged():
     if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
     user = User.query.filter_by(email=current_user.email).first()
     return render_template('logged.html', user=user)
@@ -39,6 +43,7 @@ def logged():
 @app.route('/drivers')
 def drivers():
     if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
     drivers = Driver.query.all()
     return render_template('drivers.html', drivers=drivers)
@@ -73,14 +78,12 @@ def login():
             flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
-@app.route('/logout')
-def logout():
-    logout_user()
-    return redirect(url_for('home'))
-
 @app.route('/addDriver', methods=['GET', 'POST'])
 def addDriver():
-    form = AddDriver()
+    if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
+        return redirect(url_for('home'))
+    form = DriverForm()
     if form.validate_on_submit():
         driver = Driver(name=form.name.data, age=form.age.data, salary=form.salary.data,
                         licenses=form.licenses.data, tripHistory=form.tripHistory.data)
@@ -89,3 +92,9 @@ def addDriver():
         flash('Driver added to the Database', category='success')
         return redirect(url_for('logged'))
     return render_template('addDriver.html', form=form)
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
