@@ -55,6 +55,7 @@ class MechanicForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     age = StringField('Age', validators=[DataRequired()])
     salary = StringField('Salary', validators=[DataRequired()])
+    role = StringField('Role', validators=[DataRequired()])
     lastMaintenancePerformed = StringField('Last Maintenance Date', validators=[DataRequired()])
     submit = SubmitField('Register Mechanic')
 

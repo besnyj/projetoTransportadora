@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, flash, redirect
-from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm
+from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm
 from serverFlask.models import User, Driver, Mechanic, Vehicle
 from serverFlask import app, db, bcrypt
 from flask_login import login_user, current_user, logout_user
@@ -23,7 +23,8 @@ def mechanics():
     if not current_user.is_authenticated:
         flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
-    return render_template('mechanics.html')
+    mechanics = Mechanic.query.all()
+    return render_template('mechanics.html', mechanics=mechanics)
 
 @app.route('/parcels')
 def parcels():
@@ -110,6 +111,20 @@ def addVehicle():
         return redirect(url_for('logged'))
     return render_template('addVehicle.html', form=form)
 
+@app.route('/addMechanic', methods=['GET', 'POST'])
+def addMechanic():
+    if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
+        return redirect(url_for())
+    form = MechanicForm()
+    if form.validate_on_submit():
+        mechanic = Mechanic(name=form.name.data, age=form.age.data,
+                            salary=form.salary.data, role=form.role.data,
+                            lastMaintenancePerformed=form.lastMaintenancePerformed.data)
+        db.session.add(mechanic)
+        db.session.commit()
+        return redirect(url_for('logged'))
+    return render_template('addMechanic.html', form=form)
 @app.route('/logout')
 def logout():
     logout_user()
