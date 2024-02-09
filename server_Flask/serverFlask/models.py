@@ -53,6 +53,8 @@ class Vehicle(db.Model):
     # assigns the vehicle to a specific driver and mechanic from the Driver, Mechanic tables with their unique id
     driver_id = db.Column(db.Integer, db.ForeignKey('driver.id'), nullable=False)
     mechanic_id = db.Column(db.Integer, db.ForeignKey('mechanic.id'), nullable=False)
+    driverName = db.Column(db.String(60), nullable=True)
+    mechanicName = db.Column(db.String(60), nullable=True)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
 
     def __repr__(self):

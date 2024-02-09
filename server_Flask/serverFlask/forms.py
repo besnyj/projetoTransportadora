@@ -67,11 +67,16 @@ class VehicleForm(FlaskForm):
 
 
     def mechanicIdLook(self):
-        try:
-            mechanic = Mechanic.query.filter_by(name=self).first()
-            return mechanic.id
-        except:
-            return 0
+        mechanic = Mechanic.query.filter_by(name=self).first()
+        return mechanic.id
+
+    def driverNameLook(self):
+        driver = Driver.query.filter_by(id=self).first()
+        return driver.name
+
+    def mechanicNameLook(self):
+        mechanic = Mechanic.query.filter_by(id=self).first()
+        return mechanic.name
 
     licensePlate = StringField('License Plate', validators=[DataRequired(),Length(max=8)])
     type = StringField('Type', validators=[DataRequired()])

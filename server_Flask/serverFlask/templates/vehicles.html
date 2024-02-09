@@ -8,5 +8,35 @@
       <a href="{{ url_for('parcels') }}"><i class="fa fa-fw fa-envelope"></i> Parcels</a>
   <a href="{{ url_for('logout') }}"><i class="fa fa-fw fa-user"></i> Logout</a>
     </div>
+    <div>
+        <table style="align-items: center">
+        <tr>
+            <th colspan="9">Vehicles</th>
+        </tr>
+        <tr>
+            <th>License Plate</th>
+            <th>Assigned Driver ID</th>
+            <th>Assigned Mechanic ID</th>
+            <th>Type</th>
+            <th>Year</th>
+            <th>Weight</th>
+            <th>Last Maintenance Performed</th>
+            <th>Extra</th>
+            <th>Image</th>
+        </tr>
+            {%  for vehicle in vehicles %}
+            <tr>
+                <td>{{ vehicle.licensePlate }}</td>
+                <td>{{ vehicle.driverName }}</td>
+                <td>{{ vehicle.mechanicName }}</td>
+                <td>{{ vehicle.type }}</td>
+                <td>{{ vehicle.year }}</td>
+                <td>{{ vehicle.weight }}</td>
+                <td>{{ vehicle.lastMaintenance }}</td>
+                <td>{{ vehicle.extra }}</td>
+                <td>{{ vehicle.image_file }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    </div>
 {% endblock content %}
-

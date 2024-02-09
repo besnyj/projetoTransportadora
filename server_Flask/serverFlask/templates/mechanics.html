@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
+    <a class="active" href="{{ url_for('addMechanic') }}"><i class="fa fa-fw fa-home"></i> Add Mechanic</a>
     <div class="navbar">
   <a class="active" href="{{ url_for('logged') }}"><i class="fa fa-fw fa-home"></i> Home</a>
   <a href="{{ url_for('vehicles') }}"><i class="fa fa-fw fa-search"></i> Vehicles</a>
@@ -36,10 +37,5 @@
             </tr>
             {% endfor %}
     </table>
-    {%  for mechanic in mechanics %}
-    <tr>
-        <td>{{ mechanic.username }}</td>
-    </tr>
-    {%  endfor %}
 
 {% endblock content %}

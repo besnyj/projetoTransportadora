@@ -11,12 +11,13 @@ def home():
         return redirect(url_for('logged'))
     return render_template('home.html', methods=['GET', 'POST'])
 
-@app.route('/vehicles')
+@app.route('/vehicles', methods=['GET', 'POST'])
 def vehicles():
     if not current_user.is_authenticated:
         flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
-    return render_template('vehicles.html')
+    vehicle = Vehicle.query.all()
+    return render_template('vehicles.html', vehicles=vehicle)
 
 @app.route('/mechanics')
 def mechanics():
@@ -91,7 +92,7 @@ def addDriver():
         db.session.add(driver)
         db.session.commit()
         flash('Driver added to the Database', category='success')
-        return redirect(url_for('logged'))
+        return redirect(url_for('drivers'))
     return render_template('addDriver.html', form=form)
 
 @app.route('/addVehicle', methods=['GET', 'POST'])
@@ -102,13 +103,18 @@ def addVehicle():
 
     form = VehicleForm()
     if form.validate_on_submit():
-        vehicle = Vehicle(licensePlate=form.licensePlate.data, type=form.type.data,
-                          year=form.year.data, weight=form.weight.data,
-                          lastMaintenance=form.lastMaintenance.data, driver_id=VehicleForm.driverIdLook(form.driver_id.data),
-                          mechanic_id=VehicleForm.mechanicIdLook(form.mechanic_id.data), extra=form.extra.data)
-        db.session.add(vehicle)
-        db.session.commit()
-        return redirect(url_for('logged'))
+        try:
+            vehicle = Vehicle(licensePlate=form.licensePlate.data, type=form.type.data,
+                              year=form.year.data, weight=form.weight.data,
+                              lastMaintenance=form.lastMaintenance.data, driver_id=VehicleForm.driverIdLook(form.driver_id.data),
+                              mechanic_id=VehicleForm.mechanicIdLook(form.mechanic_id.data), extra=form.extra.data,
+                              driverName=form.driver_id.data, mechanicName=form.mechanic_id.data)
+            db.session.add(vehicle)
+            db.session.commit()
+            return redirect(url_for('logged'))
+        except:
+            flash('Invalid Driver/Mechanic ID. Please, try again with valid IDs', category='danger')
+            return redirect(url_for('addVehicle'))
     return render_template('addVehicle.html', form=form)
 
 @app.route('/addMechanic', methods=['GET', 'POST'])
@@ -123,8 +129,10 @@ def addMechanic():
                             lastMaintenancePerformed=form.lastMaintenancePerformed.data)
         db.session.add(mechanic)
         db.session.commit()
-        return redirect(url_for('logged'))
+        flash('Mechanic added to the Database', category='success')
+        return redirect(url_for('mechanics'))
     return render_template('addMechanic.html', form=form)
+
 @app.route('/logout')
 def logout():
     logout_user()
