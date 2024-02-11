@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, flash, redirect
 from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm
 from serverFlask.models import User, Driver, Mechanic, Vehicle
-from serverFlask import app, db, bcrypt
+from serverFlask import app, db, bcrypt, register_user_code
 from flask_login import login_user, current_user, logout_user
 
 @app.route('/')
@@ -10,6 +10,14 @@ def home():
     if current_user.is_authenticated:
         return redirect(url_for('logged'))
     return render_template('home.html', methods=['GET', 'POST'])
+
+@app.route('/userpage')
+def userpage():
+    if not current_user.is_authenticated:
+        return redirect(url_for('home'))
+    user = User.query.filter_by(id=current_user.get_id()).first()
+    return render_template('userpage.html', methods=['GET', 'POST'], user=user)
+
 
 @app.route('/vehicles', methods=['GET', 'POST'])
 def vehicles():
@@ -57,7 +65,7 @@ def register():
     if current_user.is_authenticated:
         return redirect(url_for('logged'))
     form = RegistrationForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit() and form.register_user_code.data == register_user_code:
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(user) # add user to the db

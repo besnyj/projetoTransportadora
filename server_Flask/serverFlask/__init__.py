@@ -13,6 +13,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///workersAndVehicles.db'
 db = SQLAlchemy(app) # Creates the database instance. We can represent the db structures as classes or models
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app) # adding the log in feature
+register_user_code = 'e3b0c44298'
 
 from serverFlask import routes
 

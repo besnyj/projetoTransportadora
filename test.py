@@ -1,11 +1,4 @@
-class Humano:
-    def __init__(self, age):
-        self.age = age
+username = 'Roger'
+file = open(f'{username}Profile.html', 'a')
 
-    def __repr__(self):
-        return f"{self.age}"
-
-humano = Humano(20)
-
-print(humano)
-
+file.write('<head>Title</head>')

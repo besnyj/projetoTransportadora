@@ -14,6 +14,7 @@ class RegistrationForm(FlaskForm):
         validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password',
         validators=[DataRequired(), EqualTo('password')])
+    register_user_code = StringField('Register Code', validators=[DataRequired()])
 
     submit = SubmitField('Sign Up')
 
