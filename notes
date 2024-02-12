@@ -45,3 +45,4 @@
 >>> bcrypt.generate_password_hash('testing')
 
 pip install flask-login to add the feature of login to the app
+- all imgs need to be inside the static folder.

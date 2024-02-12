@@ -15,8 +15,8 @@ def home():
 def userpage():
     if not current_user.is_authenticated:
         return redirect(url_for('home'))
-    user = User.query.filter_by(id=current_user.get_id()).first()
-    return render_template('userpage.html', methods=['GET', 'POST'], user=user)
+    image_file = url_for('static', filename='profile_pics/'+current_user.image_file)
+    return render_template('userpage.html', image_file=image_file)
 
 
 @app.route('/vehicles', methods=['GET', 'POST'])
