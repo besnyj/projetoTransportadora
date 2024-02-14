@@ -88,3 +88,9 @@ class VehicleForm(FlaskForm):
     mechanic_id = StringField("Assigned Mechanic's Name", validators=[DataRequired()])
     extra = StringField("Extra", validators=[DataRequired()])
     submit = SubmitField('Register Vehicle')
+
+class ParcelsForm(FlaskForm):
+    driver_id = StringField("Assigned Driver's Name", validators=[DataRequired()])
+    origin = StringField('Origin', validators=[DataRequired()])
+    destiny = StringField('Destiny', validators=[DataRequired()])
+    expectedArrDate = StringField('Expected Arrive Date', validators=[DataRequired()])

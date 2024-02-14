@@ -41,6 +41,13 @@ class Mechanic(db.Model):
     def __repr__(self):
         return f"Mechanic({self.id}, {self.username}, {self.email}, {self.password}, {self.name}, {self.age}, {self.role}, {self.salary}, {self.vehiclesAssigned}, {self.lastMaintenancePerformed}, {self.image_file})"
 
+class Parcels(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    driver_id = db.Column(db.Integer, db.ForeignKey('driver.id'), nullable=False)
+    origin = db.Column(db.String(60), nullable=False)
+    destiny = db.Column(db.String(60), nullable=False)
+    expectedArrDate= db.Column(db.String(60), nullable=False)
+
 
 class Vehicle(db.Model):
     id = db.Column(db.Integer, primary_key=True)
