@@ -94,3 +94,4 @@ class ParcelsForm(FlaskForm):
     origin = StringField('Origin', validators=[DataRequired()])
     destiny = StringField('Destiny', validators=[DataRequired()])
     expectedArrDate = StringField('Expected Arrive Date', validators=[DataRequired()])
+    submit = SubmitField('Submit Parcel for Delivery')

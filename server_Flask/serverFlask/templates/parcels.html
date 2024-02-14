@@ -8,4 +8,23 @@
       <a href="{{ url_for('parcels') }}"><i class="fa fa-fw fa-envelope"></i> Parcels</a>
   <a href="{{ url_for('logout') }}"><i class="fa fa-fw fa-user"></i> Logout</a>
 </div>
+    <table style="align-items: center">
+        <tr>
+            <th colspan="4">PARCELS</th>
+        </tr>
+        <tr>
+            <th>Driver Assigned</th>
+            <th>Origin</th>
+            <th>Destiny</th>
+            <th>Expected Arrive Date</th>
+        </tr>
+            {%  for parcel in parcels %}
+            <tr>
+                <td>{{ parcel.driver_id }}</td>
+                <td>{{ parcel.origin }}</td>
+                <td>{{ parcel.destiny }}</td>
+                <td>{{ parcel.expectedArrDate }}</td>
+            </tr>
+            {% endfor %}
+    </table>
 {% endblock content %}

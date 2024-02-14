@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, flash, redirect
 from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm, ParcelsForm
-from serverFlask.models import User, Driver, Mechanic, Vehicle, Parcels
+from serverFlask.models import User, Driver, Mechanic, Vehicle, ParcelsModel
 from serverFlask import app, db, bcrypt, register_user_code
 from flask_login import login_user, current_user, logout_user
 
@@ -40,7 +40,8 @@ def parcels():
     if not current_user.is_authenticated:
         flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
-    return render_template('parcels.html')
+    parcels = ParcelsModel.query.all()
+    return render_template('parcels.html', parcels=parcels)
 
 @app.route('/logged', methods=['GET', 'POST'])
 def logged():
@@ -141,19 +142,20 @@ def addMechanic():
         return redirect(url_for('mechanics'))
     return render_template('addMechanic.html', form=form)
 
-@app.route('/addParcels')
-def parcels():
+@app.route('/addParcels', methods=['GET', 'POST'])
+def addParcels():
     if not current_user.is_authenticated:
         flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
-    form = ParcelsForm
+    form = ParcelsForm()
     if form.validate_on_submit():
-        parcel = Parcels(driver_id=form.VehicleForm.driverIdLook(form.driver_id.data), origin=form.origin.data,
+        parcel = ParcelsModel(driver_id=VehicleForm.driverIdLook(form.driver_id.data), origin=form.origin.data,
                          destiny=form.destiny.data, expectedArrDate=form.expectedArrDate.data)
         db.session.add(parcel)
         db.session.commit()
         return redirect(url_for('parcels'))
-    return render_template('addParces.html', form=form)
+        flash('Parcel added to the Database', category='success')
+    return render_template('addParcels.html', form=form)
 
 @app.route('/logout')
 def logout():

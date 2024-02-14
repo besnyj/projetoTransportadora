@@ -27,7 +27,9 @@ class Driver(db.Model):
 
     # how the object is printed whenever we print it our
     def __repr__(self):
-        return f"Driver({self.id}, {self.username}, {self.email}, {self.password}, {self.name}, {self.age}, {self.role}, {self.salary}, {self.vehiclesAssigned}, {self.licenses}, {self.tripHistory}, {self.image_file})"
+        return (f"Driver({self.id}, {self.name}, {self.age}, {self.salary},"
+                f" {self.vehiclesAssigned}, {self.licenses},"
+                f" {self.tripHistory}, {self.image_file})")
 
 class Mechanic(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -41,7 +43,7 @@ class Mechanic(db.Model):
     def __repr__(self):
         return f"Mechanic({self.id}, {self.username}, {self.email}, {self.password}, {self.name}, {self.age}, {self.role}, {self.salary}, {self.vehiclesAssigned}, {self.lastMaintenancePerformed}, {self.image_file})"
 
-class Parcels(db.Model):
+class ParcelsModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     driver_id = db.Column(db.Integer, db.ForeignKey('driver.id'), nullable=False)
     origin = db.Column(db.String(60), nullable=False)
