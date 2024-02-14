@@ -29,7 +29,7 @@ class Driver(db.Model):
     def __repr__(self):
         return (f"Driver({self.id}, {self.name}, {self.age}, {self.salary},"
                 f" {self.vehiclesAssigned}, {self.licenses},"
-                f" {self.tripHistory}, {self.image_file})")
+                f" {self.tripHistory})")
 
 class Mechanic(db.Model):
     id = db.Column(db.Integer, primary_key=True)

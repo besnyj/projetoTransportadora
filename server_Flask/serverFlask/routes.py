@@ -113,11 +113,17 @@ def addVehicle():
     form = VehicleForm()
     if form.validate_on_submit():
         try:
+            driver_id = VehicleForm.driverIdLook(form.driver_id.data)
+            driverInfo = Driver.query.filter_by(id=driver_id).first()
+            driver_name = driverInfo.name
+            mechanic_id = VehicleForm.mechanic_id(form.driver_id.data)
+            mechanicInfo = Mechanic.query.filter_by(id=mechanic_id).first()
+            mechanic_name = mechanicInfo.name
             vehicle = Vehicle(licensePlate=form.licensePlate.data, type=form.type.data,
                               year=form.year.data, weight=form.weight.data,
                               lastMaintenance=form.lastMaintenance.data, driver_id=VehicleForm.driverIdLook(form.driver_id.data),
                               mechanic_id=VehicleForm.mechanicIdLook(form.mechanic_id.data), extra=form.extra.data,
-                              driverName=form.driver_id.data, mechanicName=form.mechanic_id.data)
+                              driverName=driver_name, mechanicName=mechanic_name)
             db.session.add(vehicle)
             db.session.commit()
             return redirect(url_for('logged'))
@@ -149,7 +155,10 @@ def addParcels():
         return redirect(url_for('home'))
     form = ParcelsForm()
     if form.validate_on_submit():
-        parcel = ParcelsModel(driver_id=VehicleForm.driverIdLook(form.driver_id.data), origin=form.origin.data,
+        driver_id = VehicleForm.driverIdLook(form.driver_id.data)
+        driverInfo = Driver.query.filter_by(id=driver_id).first()
+        driver_name = driverInfo.name
+        parcel = ParcelsModel(driver_id=driver_name, origin=form.origin.data,
                          destiny=form.destiny.data, expectedArrDate=form.expectedArrDate.data)
         db.session.add(parcel)
         db.session.commit()
