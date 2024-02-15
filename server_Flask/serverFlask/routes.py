@@ -13,14 +13,6 @@ def home():
         return redirect(url_for('logged'))
     return render_template('home.html', methods=['GET', 'POST'])
 
-@app.route('/userpage')
-def userpage():
-    if not current_user.is_authenticated:
-        return redirect(url_for('home'))
-    image_file = url_for('static', filename='profile_pics/'+current_user.image_file)
-    return render_template('userpage.html', image_file=image_file)
-
-
 @app.route('/vehicles', methods=['GET', 'POST'])
 def vehicles():
     if not current_user.is_authenticated:
@@ -52,6 +44,14 @@ def logged():
         return redirect(url_for('home'))
     user = User.query.filter_by(email=current_user.email).first()
     return render_template('logged.html', user=user)
+
+@app.route('/driverprofile', methods=['GET', 'POST'])
+def driverprofile():
+    if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
+        return redirect(url_for('home'))
+    return render_template('driverprofile.html')
+
 
 @app.route('/drivers', methods=['GET', 'POST'])
 def drivers():
@@ -113,6 +113,7 @@ def addDriver():
         file = form.file.data
         file.filename = f'{driver.id}.png'
         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+
 
         flash('Driver added to the Database', category='success')
         return redirect(url_for('drivers'))
@@ -177,6 +178,7 @@ def addParcels():
         return redirect(url_for('parcels'))
         flash('Parcel added to the Database', category='success')
     return render_template('addParcels.html', form=form)
+
 
 @app.route('/logout')
 def logout():
