@@ -54,6 +54,10 @@ class DriverForm(FlaskForm):
     file = FileField("File")
     submit = SubmitField('Register Driver')
 
+    def driverPicLook(self):
+        driverPic = url_for('static', filename='driver_pics/' + f'{driver.id}'+'.jpg')
+        return driverPic
+
 class MechanicForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     age = StringField('Age', validators=[DataRequired()])
@@ -67,7 +71,6 @@ class VehicleForm(FlaskForm):
     def driverIdLook(self):
         driver = Driver.query.filter_by(name=self).first()
         return driver.id
-
 
     def mechanicIdLook(self):
         mechanic = Mechanic.query.filter_by(name=self).first()

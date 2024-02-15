@@ -53,14 +53,15 @@ def logged():
     user = User.query.filter_by(email=current_user.email).first()
     return render_template('logged.html', user=user)
 
-@app.route('/drivers')
+@app.route('/drivers', methods=['GET', 'POST'])
 def drivers():
     if not current_user.is_authenticated:
         flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
 
     drivers = Driver.query.all()
-    return render_template('drivers.html', drivers=drivers)
+    driverPic = url_for('static', filename='driver_pics/')
+    return render_template('drivers.html', drivers=drivers, driverPic=driverPic)
 
 
 # add the methods so the function will accept getting and sending information
@@ -101,7 +102,11 @@ def addDriver():
     if form.validate_on_submit():
         driver = Driver(name=form.name.data, age=form.age.data, salary=form.salary.data,
                         licenses=form.licenses.data, tripHistory=form.tripHistory.data)
+        print(driver)
         db.session.add(driver)
+        db.session.commit()
+        driver = Driver.query.filter_by(id=driver.id).first()
+        driver.image_file = f'{driver.id}.png'
         db.session.commit()
 
         # saves the profile pic for the driver
@@ -121,11 +126,10 @@ def addVehicle():
 
     form = VehicleForm()
     if form.validate_on_submit():
-        try:
             driver_id = VehicleForm.driverIdLook(form.driver_id.data)
             driverInfo = Driver.query.filter_by(id=driver_id).first()
             driver_name = driverInfo.name
-            mechanic_id = VehicleForm.mechanic_id(form.driver_id.data)
+            mechanic_id = VehicleForm.mechanicIdLook(form.mechanic_id.data)
             mechanicInfo = Mechanic.query.filter_by(id=mechanic_id).first()
             mechanic_name = mechanicInfo.name
             vehicle = Vehicle(licensePlate=form.licensePlate.data, type=form.type.data,
@@ -136,7 +140,6 @@ def addVehicle():
             db.session.add(vehicle)
             db.session.commit()
             return redirect(url_for('logged'))
-        except:
             flash('Invalid Driver/Mechanic ID. Please, try again with valid IDs', category='danger')
             return redirect(url_for('addVehicle'))
     return render_template('addVehicle.html', form=form)
@@ -180,13 +183,13 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-@app.route('/test', methods=['GET', 'POST'])
-def test():
-    form = TestForm()
-    if form.validate_on_submit():
-        file = form.file.data # grabs the file
-        file.filename = '111.jpg'
-        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(file.filename))) # saves it
-    return render_template('test.html', form=form)
+# @app.route('/test', methods=['GET', 'POST'])
+# def test():
+#     form = TestForm()
+#     if form.validate_on_submit():
+#         file = form.file.data # grabs the file
+#         file.filename = '111.jpg'
+#         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(file.filename))) # saves it
+#     return render_template('test.html', form=form)
 
 

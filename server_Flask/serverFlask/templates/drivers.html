@@ -14,7 +14,7 @@
       <a href="{{ url_for('parcels') }}"><i class="fa fa-fw fa-envelope"></i> Parcels</a>
   <a href="{{ url_for('logout') }}"><i class="fa fa-fw fa-user"></i> Logout</a>
 </div>
-    <table style="align-items: center">
+    <table style="align-items: center" method="POST">
         <tr>
             <th colspan="7">DRIVERS</th>
         </tr>
@@ -39,7 +39,7 @@
                 <td>{{ driver.licenses }}</td>
                 <td>{{ driver.tripHistory }}</td>
                 <td>
-                    <img class="rounded-circle account-img" src="{{ driver.image }}">
+                    <img class="rounded-circle account-img" src="{{ driverPic }}{{ driver.id }}.png">
                 </td>
             </tr>
             {% endfor %}

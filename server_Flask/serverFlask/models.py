@@ -24,6 +24,8 @@ class Driver(db.Model):
     vehiclesAssigned = db.relationship('Vehicle', backref='driver', lazy=True)
     licenses = db.Column(db.String(120), nullable=True)
     tripHistory = db.Column(db.String(60), nullable=True)
+    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
+
 
     # how the object is printed whenever we print it our
     def __repr__(self):
