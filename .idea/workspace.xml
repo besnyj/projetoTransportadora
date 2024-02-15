@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="flask development">
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/addDriver.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/addDriver.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/drivers.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/drivers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/userpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/userpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo" beforeDir="false" afterPath="$PROJECT_DIR$/todo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +91,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -185,7 +176,9 @@
       <workItem from="1707919552763" duration="6332000" />
       <workItem from="1707951799785" duration="2194000" />
       <workItem from="1708008200045" duration="2811000" />
-      <workItem from="1708011032026" duration="4817000" />
+      <workItem from="1708011032026" duration="5479000" />
+      <workItem from="1708024315042" duration="18000" />
+      <workItem from="1708024338239" duration="113000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -387,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707957013587</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="flask development">
+      <option name="closed" value="true" />
+      <created>1708023734756</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1708023734756</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
