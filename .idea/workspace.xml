@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="flask development">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" afterDir="false" />
-    </list>
+    <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="flask development" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +139,7 @@
       <workItem from="1707029613171" duration="5448000" />
       <workItem from="1707741624054" duration="3265000" />
       <workItem from="1707919552763" duration="6332000" />
-      <workItem from="1707951799785" duration="789000" />
+      <workItem from="1707951799785" duration="1670000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -330,7 +325,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707951746584</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="flask development">
+      <option name="closed" value="true" />
+      <created>1707952882226</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1707952882226</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
