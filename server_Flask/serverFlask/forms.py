@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, ValidationError
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from serverFlask.models import User, Driver, Mechanic
+from flask_wtf.file import FileRequired, FileField
 from serverFlask import db
 
 
@@ -50,6 +51,7 @@ class DriverForm(FlaskForm):
     salary = StringField('Salary', validators=[DataRequired()])
     licenses = StringField('Licenses', validators=[DataRequired()])
     tripHistory = StringField('Trip History', [DataRequired()])
+    file = FileField("File")
     submit = SubmitField('Register Driver')
 
 class MechanicForm(FlaskForm):
@@ -95,3 +97,7 @@ class ParcelsForm(FlaskForm):
     destiny = StringField('Destiny', validators=[DataRequired()])
     expectedArrDate = StringField('Expected Arrive Date', validators=[DataRequired()])
     submit = SubmitField('Submit Parcel for Delivery')
+
+class TestForm(FlaskForm):
+    file = FileField('Image', validators=[FileRequired()])
+    submit = SubmitField('Upload')

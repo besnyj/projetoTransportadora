@@ -38,7 +38,9 @@
                 </td>
                 <td>{{ driver.licenses }}</td>
                 <td>{{ driver.tripHistory }}</td>
-                <td>{{ driver.image_file }}</td>
+                <td>
+                    <img class="rounded-circle account-img" src="{{ driver.image }}">
+                </td>
             </tr>
             {% endfor %}
     </table>

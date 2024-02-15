@@ -1,8 +1,10 @@
+import os
 from flask import Flask, render_template, url_for, flash, redirect
-from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm, ParcelsForm
+from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm, ParcelsForm, TestForm
 from serverFlask.models import User, Driver, Mechanic, Vehicle, ParcelsModel
 from serverFlask import app, db, bcrypt, register_user_code
 from flask_login import login_user, current_user, logout_user
+from werkzeug.utils import secure_filename
 
 @app.route('/')
 @app.route('/home') # home is the front page when not logged
@@ -56,6 +58,7 @@ def drivers():
     if not current_user.is_authenticated:
         flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
+
     drivers = Driver.query.all()
     return render_template('drivers.html', drivers=drivers)
 
@@ -100,6 +103,12 @@ def addDriver():
                         licenses=form.licenses.data, tripHistory=form.tripHistory.data)
         db.session.add(driver)
         db.session.commit()
+
+        # saves the profile pic for the driver
+        file = form.file.data
+        file.filename = f'{driver.id}.png'
+        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+
         flash('Driver added to the Database', category='success')
         return redirect(url_for('drivers'))
     return render_template('addDriver.html', form=form)
@@ -170,4 +179,14 @@ def addParcels():
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    form = TestForm()
+    if form.validate_on_submit():
+        file = form.file.data # grabs the file
+        file.filename = '111.jpg'
+        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(file.filename))) # saves it
+    return render_template('test.html', form=form)
+
 
