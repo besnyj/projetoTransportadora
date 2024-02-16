@@ -5,7 +5,6 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
 
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 # function to fetch all info from the vehicle database
 # vehicles = classes.vehicles.vehiclesDB.queryVehiclesGeneral()
 app = Flask(__name__)
