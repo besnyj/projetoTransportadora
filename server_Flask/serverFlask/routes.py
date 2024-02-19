@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, url_for, flash, redirect
+from flask import Flask, render_template, url_for, flash, redirect, request
 from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm, ParcelsForm, TestForm
 from serverFlask.models import User, Driver, Mechanic, Vehicle, ParcelsModel
 from serverFlask import app, db, bcrypt, register_user_code
@@ -21,13 +21,24 @@ def vehicles():
     vehicle = Vehicle.query.all()
     return render_template('vehicles.html', vehicles=vehicle)
 
+@app.route('/drivers', methods=['GET', 'POST'])
+def drivers():
+    if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
+        return redirect(url_for('home'))
+
+    drivers = Driver.query.all()
+    driverPic = url_for('static', filename='driver_pics/')
+    return render_template('drivers.html', drivers=drivers, driverPic=driverPic)
+
 @app.route('/mechanics')
 def mechanics():
     if not current_user.is_authenticated:
         flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
     mechanics = Mechanic.query.all()
-    return render_template('mechanics.html', mechanics=mechanics)
+    mechanicPic = url_for('static', filename='mechanic_pics/')
+    return render_template('mechanics.html', mechanics=mechanics, mechanicPic=mechanicPic)
 
 @app.route('/parcels')
 def parcels():
@@ -50,18 +61,10 @@ def driverprofile():
     if not current_user.is_authenticated:
         flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
+
+
+
     return render_template('driverprofile.html')
-
-
-@app.route('/drivers', methods=['GET', 'POST'])
-def drivers():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
-
-    drivers = Driver.query.all()
-    driverPic = url_for('static', filename='driver_pics/')
-    return render_template('drivers.html', drivers=drivers, driverPic=driverPic)
 
 
 # add the methods so the function will accept getting and sending information
@@ -102,7 +105,6 @@ def addDriver():
     if form.validate_on_submit():
         driver = Driver(name=form.name.data, age=form.age.data, salary=form.salary.data,
                         licenses=form.licenses.data, tripHistory=form.tripHistory.data)
-        print(driver)
         db.session.add(driver)
         db.session.commit()
         driver = Driver.query.filter_by(id=driver.id).first()
@@ -112,7 +114,7 @@ def addDriver():
         # saves the profile pic for the driver
         file = form.file.data
         file.filename = f'{driver.id}.png'
-        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), f'{app.config['UPLOAD_FOLDER']}/driver_pics', secure_filename(file.filename)))
 
 
         flash('Driver added to the Database', category='success')
@@ -157,6 +159,14 @@ def addMechanic():
                             lastMaintenancePerformed=form.lastMaintenancePerformed.data)
         db.session.add(mechanic)
         db.session.commit()
+        mechanic = Mechanic.query.filter_by(id=mechanic.id).first()
+        mechanic.image_file = f'{mechanic.id}.png'
+        db.session.commit()
+
+        file = form.file.data
+        file.filename = f'{mechanic.id}.png'
+        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), f'{app.config['UPLOAD_FOLDER']}/mechanic_pics', secure_filename(file.filename)))
+
         flash('Mechanic added to the Database', category='success')
         return redirect(url_for('mechanics'))
     return render_template('addMechanic.html', form=form)
@@ -187,11 +197,8 @@ def logout():
 
 # @app.route('/test', methods=['GET', 'POST'])
 # def test():
-#     form = TestForm()
-#     if form.validate_on_submit():
-#         file = form.file.data # grabs the file
-#         file.filename = '111.jpg'
-#         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(file.filename))) # saves it
-#     return render_template('test.html', form=form)
+#     driverRequest = request.args.get('driver')
+#     driver = Driver.query.filter_by(id=driverRequest).first()
+#     return render_template('test.html', driver=driver)
 
 

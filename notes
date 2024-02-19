@@ -46,3 +46,4 @@
 
 pip install flask-login to add the feature of login to the app
 - all imgs need to be inside the static folder.
+- send information from a page to another by using query parameters

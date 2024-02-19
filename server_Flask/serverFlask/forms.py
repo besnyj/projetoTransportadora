@@ -54,9 +54,6 @@ class DriverForm(FlaskForm):
     file = FileField("File")
     submit = SubmitField('Register Driver')
 
-    def driverPicLook(self):
-        driverPic = url_for('static', filename='driver_pics/' + f'{driver.id}'+'.jpg')
-        return driverPic
 
 class MechanicForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
@@ -64,6 +61,7 @@ class MechanicForm(FlaskForm):
     salary = StringField('Salary', validators=[DataRequired()])
     role = StringField('Role', validators=[DataRequired()])
     lastMaintenancePerformed = StringField('Last Maintenance Date', validators=[DataRequired()])
+    file = FileField("File")
     submit = SubmitField('Register Mechanic')
 
 class VehicleForm(FlaskForm):

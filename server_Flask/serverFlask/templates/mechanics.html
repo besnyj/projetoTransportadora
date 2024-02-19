@@ -33,7 +33,9 @@
                     {% endfor %}
                 </td>
                 <td>{{ mechanic.lastMaintenancePerformed }}</td>
-                <td>{{ mechanic.image_file }}</td>
+                <td>
+                    <img class="rounded-circle account-img" src="{{ mechanicPic }}{{ mechanic.id }}.png">
+                </td>
             </tr>
             {% endfor %}
     </table>
