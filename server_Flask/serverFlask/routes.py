@@ -64,8 +64,9 @@ def driverprofile():
 
     driverRequest = request.args.get('driver')
     driver = Driver.query.filter_by(name=driverRequest).first()
+    driverPic = url_for('static', filename='driver_pics/')
 
-    return render_template('driverprofile.html', driver=driver)
+    return render_template('driverprofile.html', driver=driver, driverPic=driverPic)
 
 
 # add the methods so the function will accept getting and sending information
