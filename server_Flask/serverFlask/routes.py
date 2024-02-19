@@ -62,9 +62,10 @@ def driverprofile():
         flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
 
+    driverRequest = request.args.get('driver')
+    driver = Driver.query.filter_by(name=driverRequest).first()
 
-
-    return render_template('driverprofile.html')
+    return render_template('driverprofile.html', driver=driver)
 
 
 # add the methods so the function will accept getting and sending information

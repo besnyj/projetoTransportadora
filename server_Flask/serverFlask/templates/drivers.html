@@ -30,7 +30,7 @@
             {%  for driver in drivers %}
             <tr>
                 <td>
-                    <a href="{{ url_for('driverprofile') }}?driver={{driver.id}}"><i class="fa fa-fw fa-user"></i>{{ driver.name }}</a>
+                    <a href="{{ url_for('driverprofile') }}?driver={{driver.name}}"><i class="fa fa-fw fa-user"></i>{{ driver.name }}</a>
                 </td>
                 <td>{{ driver.age }}</td>
                 <td>{{ driver.salary }}</td>
