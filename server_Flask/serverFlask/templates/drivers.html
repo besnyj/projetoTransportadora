@@ -16,7 +16,7 @@
 </div>
     <table style="align-items: center" method="POST">
         <tr>
-            <th colspan="7">DRIVERS</th>
+            <th colspan="8">DRIVERS</th>
         </tr>
         <tr>
             <th>Name</th>
@@ -26,6 +26,7 @@
             <th>Licenses</th>
             <th>Trip History</th>
             <th>Profile Pic</th>
+            <th>Options</th>
         </tr>
             {%  for driver in drivers %}
             <tr>
@@ -42,6 +43,10 @@
                 <td>{{ driver.tripHistory }}</td>
                 <td>
                     <img class="rounded-circle account-img" src="{{ driverPic }}{{ driver.id }}.png">
+                </td>
+                <td>
+                    <a href="{{ url_for('updatedriver') }}?driver={{driver.name}}"><i class="fa fa-fw fa-user"></i>Update Info</a>
+                    <a href="{{ url_for('deletedriver') }}?driver={{driver.name}}"><i class="fa fa-fw fa-user"></i>Delete Driver</a>
                 </td>
             </tr>
             {% endfor %}

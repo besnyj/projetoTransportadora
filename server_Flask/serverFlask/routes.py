@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, url_for, flash, redirect, request
-from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm, ParcelsForm, TestForm
+from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm, ParcelsForm, TestForm, UpdateDriverForm
 from serverFlask.models import User, Driver, Mechanic, Vehicle, ParcelsModel
 from serverFlask import app, db, bcrypt, register_user_code
 from flask_login import login_user, current_user, logout_user
@@ -48,6 +48,49 @@ def parcels():
     parcels = ParcelsModel.query.all()
     return render_template('parcels.html', parcels=parcels)
 
+@app.route('/updatedriver', methods=['GET', 'POST'])
+def updatedriver():
+    if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
+        return redirect(url_for('home'))
+
+    driverRequest = request.args.get('driver')
+    driver = Driver.query.filter_by(name=driverRequest).first()
+
+    form = UpdateDriverForm()
+    if form.validate_on_submit():
+        if form.age.data=="":
+            driver.age=driver.age
+        else:
+            driver.age=form.age.data
+
+        if form.salary.data=="":
+            driver.salary=driver.salary
+        else:
+            driver.salary=form.salary.data
+
+        if form.licenses.data=="":
+            driver.licenses=driver.licenses
+        else:
+            driver.licenses=form.licenses.data
+
+        if form.tripHistory.data=="":
+            driver.tripHistory=driver.tripHistory
+        else:
+            driver.tripHistory=form.tripHistory.data
+
+        if form.age.data=="":
+            driver.age=driver.age
+        else:
+            driver.age=form.age.data
+
+        db.session.commit()
+        flash("Driver's information successfully updated", category='success')
+        return redirect(url_for('drivers'))
+
+    return render_template('updatedriver.html', driver=driver, form=form)
+
+
 @app.route('/logged', methods=['GET', 'POST'])
 def logged():
     if not current_user.is_authenticated:
@@ -68,6 +111,14 @@ def driverprofile():
 
     return render_template('driverprofile.html', driver=driver, driverPic=driverPic)
 
+@app.route('/deletedriver')
+def deletedriver():
+    driverRequest = request.args.get('driver')
+    driver = Driver.query.filter_by(name=driverRequest).first()
+    db.session.delete(driver)
+    db.session.commit()
+    flash('Driver successfully deleted from database', category='success')
+    return redirect(url_for('drivers'))
 
 # add the methods so the function will accept getting and sending information
 @app.route('/register', methods=['GET', 'POST'])

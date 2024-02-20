@@ -104,10 +104,10 @@ class TestForm(FlaskForm):
     submit = SubmitField('Upload')
 
 class UpdateDriverForm(FlaskForm):
-    age = StringField('Age', validators=[DataRequired()])
-    salary = StringField('Salary', validators=[DataRequired()])
-    licenses = StringField('Licenses', validators=[DataRequired()])
-    tripHistory = StringField('Trip History', [DataRequired()])
+    age = StringField('Age')
+    salary = StringField('Salary')
+    licenses = StringField('Licenses')
+    tripHistory = StringField('Trip History')
     file = FileField("File")
     submit = SubmitField('Update Driver')
 

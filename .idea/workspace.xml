@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="flask development">
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/static/profile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/updatedriver.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes" beforeDir="false" afterPath="$PROJECT_DIR$/notes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/driverprofile.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/driverprofile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/drivers.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/drivers.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -427,7 +428,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708374587179</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="flask development">
+      <option name="closed" value="true" />
+      <created>1708387736113</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1708387736113</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,7 +473,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/projetoTransportadora$run.coverage" NAME="run Coverage Results" MODIFIED="1708372401745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server_Flask" />
+    <SUITE FILE_PATH="coverage/projetoTransportadora$run.coverage" NAME="run Coverage Results" MODIFIED="1708436114653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server_Flask" />
     <SUITE FILE_PATH="coverage/transportadora$peopleDB.coverage" NAME="peopleDB Coverage Results" MODIFIED="1705949864847" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classes/people" />
     <SUITE FILE_PATH="coverage/transportadora$test.coverage" NAME="test Coverage Results" MODIFIED="1706905093964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/transportadora$run.coverage" NAME="run Coverage Results" MODIFIED="1707051516810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server_Flask" />
