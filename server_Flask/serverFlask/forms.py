@@ -102,3 +102,21 @@ class ParcelsForm(FlaskForm):
 class TestForm(FlaskForm):
     file = FileField('Image', validators=[FileRequired()])
     submit = SubmitField('Upload')
+
+class UpdateDriverForm(FlaskForm):
+    age = StringField('Age', validators=[DataRequired()])
+    salary = StringField('Salary', validators=[DataRequired()])
+    licenses = StringField('Licenses', validators=[DataRequired()])
+    tripHistory = StringField('Trip History', [DataRequired()])
+    file = FileField("File")
+    submit = SubmitField('Update Driver')
+
+    def validate_user(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user:
+            raise ValidationError('The username is already in use. Please choose a different username')
+
+    def validate_email(self, email):
+        user = User.query.filter_by(username=email.data).first()
+        if user:
+            raise ValidationError('The email is already in use. Please choose a different valid email')

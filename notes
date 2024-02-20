@@ -5,6 +5,10 @@
 - running the server in debug mod will show changes without the need to restart the server.
 - export FLASK_DEBUG=1
 
+- WHENEVER START, REMEMBER THAT EACH LINK HAS:
+    - ROUTE, HTML and FORM* depending if you are inputting info
+    - Also, forms need to match models data
+
 - use if name==main to run the script instead of using flask
 - imgs to be displayed, need to go into the static folder
 - you can use the decorator @app.route('') to assign multiple routes for the same function.
