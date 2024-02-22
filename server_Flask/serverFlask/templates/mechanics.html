@@ -11,7 +11,7 @@
 </div>
         <table style="align-items: center">
         <tr>
-            <th colspan="7">Mechanics</th>
+            <th colspan="8">Mechanics</th>
         </tr>
         <tr>
             <th>Name</th>
@@ -21,6 +21,7 @@
             <th>Vehicles Assigned</th>
             <th>Last Maintenance Performed</th>
             <th>Profile Pic</th>
+            <th>Options</th>
         </tr>
             {%  for mechanic in mechanics %}
             <tr>
@@ -35,6 +36,9 @@
                 <td>{{ mechanic.lastMaintenancePerformed }}</td>
                 <td>
                     <img class="rounded-circle account-img" src="{{ mechanicPic }}{{ mechanic.id }}.png">
+                </td>
+                <td>
+                    <a href="{{ url_for('updatemechanic') }}?mechanic={{mechanic.name}}"><i class="fa fa-fw fa-envelope"></i>Update info</a>
                 </td>
             </tr>
             {% endfor %}

@@ -1,1 +1,3 @@
 # replicate update and delete to mechanics and vehicles
+# login required decorator
+# reorganizar codigo com py files especificas pra cada posicao

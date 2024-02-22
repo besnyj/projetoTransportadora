@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, url_for, flash, redirect, request
-from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm, ParcelsForm, TestForm, UpdateDriverForm
+from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm, ParcelsForm, TestForm, UpdateDriverForm, UpdateMechanicForm
 from serverFlask.models import User, Driver, Mechanic, Vehicle, ParcelsModel
 from serverFlask import app, db, bcrypt, register_user_code
 from flask_login import login_user, current_user, logout_user
@@ -90,6 +90,43 @@ def updatedriver():
 
     return render_template('updatedriver.html', driver=driver, form=form)
 
+@app.route('/updatemechanic', methods=['GET', 'POST'])
+def updatemechanic():
+    if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
+        return redirect(url_for('home'))
+
+    mechanicRequest = request.args.get('mechanic')
+    mechanic = Mechanic.query.filter_by(name=mechanicRequest).first()
+
+    form = UpdateMechanicForm()
+    if form.validate_on_submit():
+
+        if form.age.data=="":
+            mechanic.age = mechanic.age
+        else:
+            mechanic.age = form.age.data
+
+        if form.salary.data=="":
+            mechanic.salary = mechanic.salary
+        else:
+            mechanic.salary = form.salary.data
+
+        if form.role.data=="":
+            mechanic.role = mechanic.role
+        else:
+            mechanic.role = form.role.data
+
+        if form.lastMaintenance.data=="":
+            mechanic.lastMaintenancePerformed = mechanic.lastMaintenancePerformed
+        else:
+            mechanic.lastMaintenancePerformed = form.lastMaintenance.data
+
+        db.session.commit()
+        flash("Mechanic's information successfully updated", category='success')
+        return redirect(url_for('mechanics'))
+
+    return render_template('updatemechanic.html', mechanic=mechanic, form=form)
 
 @app.route('/logged', methods=['GET', 'POST'])
 def logged():

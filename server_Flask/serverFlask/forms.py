@@ -111,12 +111,11 @@ class UpdateDriverForm(FlaskForm):
     file = FileField("File")
     submit = SubmitField('Update Driver')
 
-    def validate_user(self, username):
-        user = User.query.filter_by(username=username.data).first()
-        if user:
-            raise ValidationError('The username is already in use. Please choose a different username')
+class UpdateMechanicForm(FlaskForm):
+    age = StringField('Age')
+    salary = StringField('Salary')
+    role = StringField('Licenses')
+    lastMaintenance = StringField('Trip History')
+    file = FileField("File")
+    submit = SubmitField('Update Driver')
 
-    def validate_email(self, email):
-        user = User.query.filter_by(username=email.data).first()
-        if user:
-            raise ValidationError('The email is already in use. Please choose a different valid email')
