@@ -161,7 +161,7 @@ def deletemechanic():
         db.session.commit()
         flash('Mechanic successfully deleted from database', category='success')
         return redirect(url_for('mechanics'))
-    except:
+    except IntegrityError:
         db.session.rollback()
         flash(f"Please, designate a new mechanic for vehicles {mechanic.vehiclesAssigned} before deleting {mechanic.name}", category='danger')
         return redirect(url_for('mechanics'))
@@ -190,7 +190,7 @@ def deletedriver():
         db.session.commit()
         flash('Driver successfully deleted from database', category='success')
         return redirect(url_for('drivers'))
-    except:
+    except IntegrityError:
         db.session.rollback()
         flash(f"Please, designate a new mechanic for vehicles {driver.vehiclesAssigned} before deleting {driver.name}", category='danger')
         return redirect(url_for('drivers'))
