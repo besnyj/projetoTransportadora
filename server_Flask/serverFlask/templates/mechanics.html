@@ -39,6 +39,7 @@
                 </td>
                 <td>
                     <a href="{{ url_for('updatemechanic') }}?mechanic={{mechanic.name}}"><i class="fa fa-fw fa-envelope"></i>Update info</a>
+                    <a href="{{ url_for('deletemechanic') }}?mechanic={{mechanic.name}}"><i class="fa fa-fw fa-envelope"></i>Delete Mechanic</a>
                 </td>
             </tr>
             {% endfor %}

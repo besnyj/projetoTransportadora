@@ -1,10 +1,13 @@
 import os
+import sqlite3
+
 from flask import Flask, render_template, url_for, flash, redirect, request
 from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm, ParcelsForm, TestForm, UpdateDriverForm, UpdateMechanicForm
 from serverFlask.models import User, Driver, Mechanic, Vehicle, ParcelsModel
 from serverFlask import app, db, bcrypt, register_user_code
 from flask_login import login_user, current_user, logout_user
 from werkzeug.utils import secure_filename
+from sqlalchemy.exc import IntegrityError
 
 @app.route('/')
 @app.route('/home') # home is the front page when not logged
@@ -148,14 +151,35 @@ def driverprofile():
 
     return render_template('driverprofile.html', driver=driver, driverPic=driverPic)
 
+@app.route('/deletemechanic')
+def deletemechanic():
+    mechanicRequest = request.args.get('mechanic')
+    mechanic = Mechanic.query.filter_by(name=mechanicRequest).first()
+
+    try:
+        db.session.delete(mechanic)
+        db.session.commit()
+        flash('Mechanic successfully deleted from database', category='success')
+        return redirect(url_for('mechanics'))
+    except:
+        db.session.rollback()
+        flash(f"Please, designate a new mechanic for vehicles {mechanic.vehiclesAssigned} before deleting {mechanic.name}", category='danger')
+        return redirect(url_for('mechanics'))
+
 @app.route('/deletedriver')
 def deletedriver():
     driverRequest = request.args.get('driver')
     driver = Driver.query.filter_by(name=driverRequest).first()
-    db.session.delete(driver)
-    db.session.commit()
-    flash('Driver successfully deleted from database', category='success')
-    return redirect(url_for('drivers'))
+
+    try:
+        db.session.delete(driver)
+        db.session.commit()
+        flash('Driver successfully deleted from database', category='success')
+        return redirect(url_for('drivers'))
+    except:
+        db.session.rollback()
+        flash(f"Please, designate a new mechanic for vehicles {driver.vehiclesAssigned} before deleting {driver.name}", category='danger')
+        return redirect(url_for('drivers'))
 
 # add the methods so the function will accept getting and sending information
 @app.route('/register', methods=['GET', 'POST'])
