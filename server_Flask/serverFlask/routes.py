@@ -323,10 +323,8 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-# @app.route('/test', methods=['GET', 'POST'])
-# def test():
-#     driverRequest = request.args.get('driver')
-#     driver = Driver.query.filter_by(id=driverRequest).first()
-#     return render_template('test.html', driver=driver)
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    return render_template('login2.html')
 
 
