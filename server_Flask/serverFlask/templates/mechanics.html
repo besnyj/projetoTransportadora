@@ -25,7 +25,9 @@
         </tr>
             {%  for mechanic in mechanics %}
             <tr>
-                <td>{{ mechanic.name }}</td>
+                <td>
+                    <a href="{{ url_for('mechanicprofile') }}?mechanic={{mechanic.name}}"><i class="fa fa-fw fa-user"></i>{{ mechanic.name }}</a>
+                </td>
                 <td>{{ mechanic.age }}</td>
                 <td>{{ mechanic.salary }}</td>
                 <td>{{ mechanic.role }}</td>

@@ -166,6 +166,20 @@ def deletemechanic():
         flash(f"Please, designate a new mechanic for vehicles {mechanic.vehiclesAssigned} before deleting {mechanic.name}", category='danger')
         return redirect(url_for('mechanics'))
 
+@app.route('/mechanicprofile')
+def mechanicprofile():
+    if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
+        return redirect(url_for('home'))
+
+    mechanicRequest = request.args.get('mechanic')
+    mechanic = Mechanic.query.filter_by(name=mechanicRequest).first()
+
+    mechanicPic = url_for('static', filename='mechanic_pics/')
+
+    return render_template('mechanicprofile.html', mechanic=mechanic, mechanicPic=mechanicPic)
+
+
 @app.route('/deletedriver')
 def deletedriver():
     driverRequest = request.args.get('driver')
