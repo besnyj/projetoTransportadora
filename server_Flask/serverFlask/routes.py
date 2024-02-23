@@ -3,7 +3,7 @@ import sqlite3
 
 from flask import Flask, render_template, url_for, flash, redirect, request
 from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm, ParcelsForm, TestForm, UpdateDriverForm, UpdateMechanicForm
-from serverFlask.models import User, Driver, Mechanic, Vehicle, ParcelsModel
+from serverFlask.models import User, Driver, Mechanic, Vehicle, ParcelsModel, Notes
 from serverFlask import app, db, bcrypt, register_user_code
 from flask_login import login_user, current_user, logout_user
 from werkzeug.utils import secure_filename
@@ -137,7 +137,8 @@ def logged():
         flash('Login needed to access the information', category='danger')
         return redirect(url_for('home'))
     user = User.query.filter_by(email=current_user.email).first()
-    return render_template('logged.html', user=user)
+    notes = Notes.query.all()
+    return render_template('logged.html', user=user, notes=notes)
 
 @app.route('/driverprofile', methods=['GET', 'POST'])
 def driverprofile():

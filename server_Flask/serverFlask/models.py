@@ -76,6 +76,7 @@ class Vehicle(db.Model):
         return f"Vehicle"
 
 class Notes(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     taskTitle = db.Column(db.String(60), nullable=False)
     taskDescription = db.Column(db.String(240), nullable=False)
     taskDeadline = db.Column(db.String(20), nullable=False)

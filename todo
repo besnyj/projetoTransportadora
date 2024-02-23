@@ -3,3 +3,9 @@
 # login required decorator
 # reorganizar codigo com py files especificas pra cada posicao
 # make login2 the main login page
+
+
+# add 3 contaners to home page:
+# notes
+# parcels to be delivered
+# inventory
