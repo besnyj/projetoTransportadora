@@ -4,16 +4,10 @@
         <meta charset="UTF-8">
         <title>Drivers</title>
     </head>
-<a class="active" href="{{ url_for('addDriver') }}"><i class="fa fa-fw fa-home"></i> Add Driver</a>
+
+<button type="button" class="btn btn-primary" href="{{ url_for('addDriver') }}">Add Driver</button>
+
 <title>Drivers</title>
-<div class="navbar" style="align-items: center">
-  <a class="active" href="{{ url_for('logged') }}"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a href="{{ url_for('vehicles') }}"><i class="fa fa-fw fa-search"></i> Vehicles</a>
-  <a href="{{ url_for('drivers') }}"><i class="fa fa-fw fa-envelope"></i> Drivers</a>
-    <a href="{{ url_for('mechanics') }}"><i class="fa fa-fw fa-envelope"></i> Mechanics</a>
-      <a href="{{ url_for('parcels') }}"><i class="fa fa-fw fa-envelope"></i> Parcels</a>
-  <a href="{{ url_for('logout') }}"><i class="fa fa-fw fa-user"></i> Logout</a>
-</div>
     <table style="align-items: center" method="POST">
         <tr>
             <th colspan="8">DRIVERS</th>
@@ -45,8 +39,8 @@
                     <img class="rounded-circle account-img" src="{{ driverPic }}{{ driver.id }}.png">
                 </td>
                 <td>
-                    <a href="{{ url_for('updatedriver') }}?driver={{driver.name}}"><i class="fa fa-fw fa-user"></i>Update Info</a>
-                    <a href="{{ url_for('deletedriver') }}?driver={{driver.name}}"><i class="fa fa-fw fa-user"></i>Delete Driver</a>
+                    <a href="{{ url_for('updatedriver') }}?driver={{driver.name}}" class="btn btn-info btn-sm active" role="button" aria-pressed="true">Update Info</a>
+                    <a href="{{ url_for('deletedriver') }}?driver={{driver.name}}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Delete Driver</a>
                 </td>
             </tr>
             {% endfor %}
