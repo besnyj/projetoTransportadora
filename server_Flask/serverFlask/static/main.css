@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
 
+h1 {
+  text-align: center;
+}
+
 .bg-steel {
   background-color: #5f788a;
 }
@@ -79,16 +83,6 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
-table, th, td {
-  border: 1px solid white;
-  border-collapse: collapse;
-}
-th, td {
-  background-color: #96D4D4;
-}
-th {
-  text-align: left;
-}
 
 .center {
   display: block;

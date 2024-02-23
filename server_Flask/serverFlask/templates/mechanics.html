@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-    <a class="active" href="{{ url_for('addMechanic') }}"><i class="fa fa-fw fa-home"></i> Add Mechanic</a>
+<br>
         <table style="align-items: center">
         <tr>
             <th colspan="8">Mechanics</th>
@@ -32,11 +32,13 @@
                     <img class="rounded-circle account-img" src="{{ mechanicPic }}{{ mechanic.id }}.png">
                 </td>
                 <td>
-                    <a href="{{ url_for('updatemechanic') }}?mechanic={{mechanic.name}}"><i class="fa fa-fw fa-envelope"></i>Update info</a>
-                    <a href="{{ url_for('deletemechanic') }}?mechanic={{mechanic.name}}"><i class="fa fa-fw fa-envelope"></i>Delete Mechanic</a>
+                    <a href="{{ url_for('updatemechanic') }}?mechanic={{mechanic.name}}" class="btn btn-info btn-sm active" role="button" aria-pressed="true">Update info</a>
+                    <a href="{{ url_for('deletemechanic') }}?mechanic={{mechanic.name}}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Delete Mechanic</a>
                 </td>
             </tr>
             {% endfor %}
     </table>
+<br>
+    <a type="button" class="btn btn-primary" href="{{ url_for('addMechanic') }}">Register New Mechanic</a>
 
 {% endblock content %}

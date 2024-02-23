@@ -74,3 +74,8 @@ class Vehicle(db.Model):
 
     def vehicleAllInfo(self):
         return f"Vehicle"
+
+class Notes(db.Model):
+    taskTitle = db.Column(db.String(60), nullable=False)
+    taskDescription = db.Column(db.String(240), nullable=False)
+    taskDeadline = db.Column(db.String(20), nullable=False)
