@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="flask development">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/nonroutefunctions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/logged.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/logged.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo" beforeDir="false" afterPath="$PROJECT_DIR$/todo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +211,7 @@
       <workItem from="1708037614905" duration="2560000" />
       <workItem from="1708461277884" duration="142000" />
       <workItem from="1708627751289" duration="10037000" />
-      <workItem from="1708698612155" duration="8669000" />
+      <workItem from="1708698612155" duration="9054000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -531,7 +525,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708727231713</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="flask development">
+      <option name="closed" value="true" />
+      <created>1708728431724</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1708728431724</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
