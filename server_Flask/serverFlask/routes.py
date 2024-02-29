@@ -81,12 +81,30 @@ def updatevehicle():
         else:
             driver = Driver.query.filter_by(name=form.driverName.data).first()
             vehicle.driver_id = driver.id
+            vehicle.driverName = driver.name
 
         if form.mechanicName.data=="":
+            vehicle.mechanic_id=vehicle.mechanic_id
+        else:
+            mechanic = Mechanic.query.filter_by(name=form.mechanicName.data).first()
+            vehicle.mechanic_id=mechanic.id
+            vehicle.mechanicName=mechanic.name
 
+        db.session.commit()
+        flash("Vehicle's information successfully updated", category='success')
+        return redirect(url_for('vehicles'))
+    return render_template('updatevehicle.html', vehicle=vehicle, form=form)
 
+@app.route('/deletevehicle')
+def deletevehicle():
 
-    return render_template('updatevehicle.html', vehicle=vehicle)
+    vehicleRequest = request.args.get('vehicle')
+    vehicle = Vehicle.query.filter_by(licensePlate=vehicleRequest).first()
+
+    db.session.delete(vehicle)
+    db.session.commit()
+    flash('Vehicle successfully deleted from database', category='success')
+    return redirect(url_for('vehicles'))
 
 @app.route('/updatedriver', methods=['GET', 'POST'])
 def updatedriver():

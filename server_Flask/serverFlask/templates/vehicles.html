@@ -1,35 +1,52 @@
 {% extends "layout.html" %}
 {% block content %}
-    <a href="{{ url_for('addVehicle') }}"><i class="fa fa-fw fa-search"></i> Add Vehicle</a>
-    <div>
-        <table style="align-items: center">
+    <head>
+        <meta charset="UTF-8">
+        <title>Vehicles</title>
+    </head>
+<title>Vehicles</title>
+<br>
+<div>
+    <table style="align-items: center" class="table table-dark table-striped" method="POST">
         <tr>
-            <th colspan="9">Vehicles</th>
+            <th colspan="9" style="align-items: center">Vehicles</th>
         </tr>
         <tr>
             <th>License Plate</th>
-            <th>Assigned Driver ID</th>
-            <th>Assigned Mechanic ID</th>
-            <th>Type</th>
+            <th>Assigned Driver</th>
+            <th>Assigned Mechanic</th>
+            <th>Vehicle Type</th>
             <th>Year</th>
             <th>Weight</th>
-            <th>Last Maintenance Performed</th>
+            <th>Last Maintenance</th>
             <th>Extra</th>
             <th>Image</th>
         </tr>
             {%  for vehicle in vehicles %}
             <tr>
-                <td>{{ vehicle.licensePlate }}</td>
+                <td>
+                    <a href=""><i class="fa fa-fw fa-user"></i>{{ vehicle.licensePlate }}</a>
+                </td>
                 <td>{{ vehicle.driverName }}</td>
                 <td>{{ vehicle.mechanicName }}</td>
                 <td>{{ vehicle.type }}</td>
-                <td>{{ vehicle.year }}</td>
                 <td>{{ vehicle.weight }}</td>
                 <td>{{ vehicle.lastMaintenance }}</td>
-                <td>{{ vehicle.extra }}</td>
-                <td>{{ vehicle.image_file }}</td>
+                <td>
+                    <img class="rounded-circle account-img" src="" width="100" height="100">
+                </td>
+                <td>
+                    <p>
+                        <a href="{{ url_for('updatevehicle') }}?vehicle={{vehicle.licensePlate}}" class="btn btn-info btn-sm active" role="button" aria-pressed="true">Update Info</a>
+                    </p>
+                    <p>
+                        <a href="{{ url_for('deletevehicle') }}?vehicle={{vehicle.licensePlate}}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Delete Vehicle</a>
+                    </p>
+                </td>
             </tr>
             {% endfor %}
     </table>
-    </div>
+</div>
+<br>
+<a type="button" class="btn btn-primary" href="{{ url_for('addVehicle') }}">Register New Vehicle</a>
 {% endblock content %}

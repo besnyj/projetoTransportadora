@@ -124,3 +124,4 @@ class UpdateVehicleForm(FlaskForm):
     extra = StringField('Extra')
     driverName = StringField('Assigned Driver')
     mechanicName = StringField('Assigned Mechanic')
+    submit = SubmitField('Update Vehicle')
