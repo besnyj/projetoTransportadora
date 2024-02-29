@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="flask development">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/parcels.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/parcels.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/vehicles.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/vehicles.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +175,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
+        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
       </set>
     </attachedChunks>
   </component>
@@ -215,7 +214,8 @@
       <workItem from="1708627751289" duration="10037000" />
       <workItem from="1708698612155" duration="9054000" />
       <workItem from="1708974077755" duration="398000" />
-      <workItem from="1709168377750" duration="4844000" />
+      <workItem from="1709168377750" duration="4973000" />
+      <workItem from="1709176481901" duration="426000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -577,7 +577,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709173955753</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="flask development">
+      <option name="closed" value="true" />
+      <created>1709176331945</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1709176331945</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
