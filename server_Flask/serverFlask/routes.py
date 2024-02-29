@@ -2,7 +2,9 @@ import os
 import sqlite3
 
 from flask import Flask, render_template, url_for, flash, redirect, request
-from serverFlask.forms import RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm, ParcelsForm, TestForm, UpdateDriverForm, UpdateMechanicForm
+from serverFlask.forms import (RegistrationForm, LoginForm, DriverForm, VehicleForm, MechanicForm,
+                               ParcelsForm, TestForm, UpdateDriverForm, UpdateMechanicForm,
+                               UpdateVehicleForm)
 from serverFlask.models import User, Driver, Mechanic, Vehicle, ParcelsModel, Notes
 from serverFlask import app, db, bcrypt, register_user_code
 from flask_login import login_user, current_user, logout_user
@@ -50,6 +52,41 @@ def parcels():
         return redirect(url_for('home'))
     parcels = ParcelsModel.query.all()
     return render_template('parcels.html', parcels=parcels)
+
+@app.route('/updatevehicle', methods=['GET', 'POST'])
+def updatevehicle():
+    if not current_user.is_authenticated:
+        flash('Login needed to access the information', category='danger')
+        return redirect(url_for('home'))
+
+    vehicleRequest = request.args.get('vehicle')
+    vehicle = Vehicle.query.filter_by(licensePlate=vehicleRequest).first()
+
+    form = UpdateVehicleForm()
+
+    if form.validate_on_submit():
+
+        if form.lastMaintenance.data=="":
+            vehicle.lastMaintenance = vehicle.lastMaintenance
+        else:
+            vehicle.lastMaintenance = form.lastMaintenance.data
+
+        if form.extra.data=="":
+            vehicle.extra=vehicle.extra
+        else:
+            vehicle.extra=form.extra.data
+
+        if form.driverName.data=="":
+            vehicle.driver_id=vehicle.driver_id
+        else:
+            driver = Driver.query.filter_by(name=form.driverName.data).first()
+            vehicle.driver_id = driver.id
+
+        if form.mechanicName.data=="":
+
+
+
+    return render_template('updatevehicle.html', vehicle=vehicle)
 
 @app.route('/updatedriver', methods=['GET', 'POST'])
 def updatedriver():

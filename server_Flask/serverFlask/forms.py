@@ -119,3 +119,8 @@ class UpdateMechanicForm(FlaskForm):
     file = FileField("File")
     submit = SubmitField('Update Driver')
 
+class UpdateVehicleForm(FlaskForm):
+    lastMaintenance = StringField('Last Maintenance Date')
+    extra = StringField('Extra')
+    driverName = StringField('Assigned Driver')
+    mechanicName = StringField('Assigned Mechanic')
