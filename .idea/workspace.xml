@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="flask development">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/mechanics.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/mechanics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/parcels.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/parcels.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/vehicles.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/vehicles.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +215,7 @@
       <workItem from="1708627751289" duration="10037000" />
       <workItem from="1708698612155" duration="9054000" />
       <workItem from="1708974077755" duration="398000" />
-      <workItem from="1709168377750" duration="3879000" />
+      <workItem from="1709168377750" duration="4844000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -569,7 +569,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709172913370</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="flask development">
+      <option name="closed" value="true" />
+      <created>1709173955753</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1709173955753</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

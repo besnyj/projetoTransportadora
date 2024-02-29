@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-    <table style="align-items: center">
+<br>
+    <table style="align-items: center" class="table table-dark table-striped" method="POST">
         <tr>
             <th colspan="4">PARCELS</th>
         </tr>
@@ -19,4 +20,5 @@
             </tr>
             {% endfor %}
     </table>
+<a type="button" class="btn btn-primary" href="{{ url_for('addParcels') }}">Add New Parcel</a>
 {% endblock content %}
