@@ -10,7 +10,7 @@ from serverFlask import app, db, bcrypt, register_user_code
 from flask_login import login_user, current_user, logout_user, login_required
 from werkzeug.utils import secure_filename
 from sqlalchemy.exc import IntegrityError
-from test import userAuthenticated
+from serverFlask.tools import userAuthenticated
 
 @app.route('/')
 @app.route('/home') # home is the front page when not logged
@@ -20,43 +20,36 @@ def home():
     return render_template('home.html', methods=['GET', 'POST'])
 
 @app.route('/vehicles', methods=['GET', 'POST'])
-@userAuthenticated
+@userAuthenticated # decorator that redirects to the home page if user is not logged
 def vehicles():
     vehicle = Vehicle.query.all()
     return render_template('vehicles.html', vehicles=vehicle)
 
 @app.route('/drivers', methods=['GET', 'POST'])
+@userAuthenticated
 def drivers():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
 
     drivers = Driver.query.all()
     driverPic = url_for('static', filename='driver_pics/')
     return render_template('drivers.html', drivers=drivers, driverPic=driverPic)
 
 @app.route('/mechanics')
+@userAuthenticated
 def mechanics():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
+
     mechanics = Mechanic.query.all()
     mechanicPic = url_for('static', filename='mechanic_pics/')
     return render_template('mechanics.html', mechanics=mechanics, mechanicPic=mechanicPic)
 
 @app.route('/parcels')
+@userAuthenticated
 def parcels():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
     parcels = ParcelsModel.query.all()
     return render_template('parcels.html', parcels=parcels)
 
 @app.route('/updatevehicle', methods=['GET', 'POST'])
+@userAuthenticated
 def updatevehicle():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
 
     vehicleRequest = request.args.get('vehicle')
     vehicle = Vehicle.query.filter_by(licensePlate=vehicleRequest).first()
@@ -95,6 +88,7 @@ def updatevehicle():
     return render_template('updatevehicle.html', vehicle=vehicle, form=form)
 
 @app.route('/deletevehicle')
+@userAuthenticated
 def deletevehicle():
 
     vehicleRequest = request.args.get('vehicle')
@@ -106,10 +100,8 @@ def deletevehicle():
     return redirect(url_for('vehicles'))
 
 @app.route('/updatedriver', methods=['GET', 'POST'])
+@userAuthenticated
 def updatedriver():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
 
     driverRequest = request.args.get('driver')
     driver = Driver.query.filter_by(name=driverRequest).first()
@@ -148,10 +140,8 @@ def updatedriver():
     return render_template('updatedriver.html', driver=driver, form=form)
 
 @app.route('/updatemechanic', methods=['GET', 'POST'])
+@userAuthenticated
 def updatemechanic():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
 
     mechanicRequest = request.args.get('mechanic')
     mechanic = Mechanic.query.filter_by(name=mechanicRequest).first()
@@ -186,19 +176,15 @@ def updatemechanic():
     return render_template('updatemechanic.html', mechanic=mechanic, form=form)
 
 @app.route('/logged', methods=['GET', 'POST'])
+@userAuthenticated
 def logged():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
     user = User.query.filter_by(email=current_user.email).first()
     notes = Notes.query.all()
     return render_template('logged.html', user=user, notes=notes)
 
 @app.route('/driverprofile', methods=['GET', 'POST'])
+@userAuthenticated
 def driverprofile():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
 
     driverRequest = request.args.get('driver')
     driver = Driver.query.filter_by(name=driverRequest).first()
@@ -207,6 +193,7 @@ def driverprofile():
     return render_template('driverprofile.html', driver=driver, driverPic=driverPic)
 
 @app.route('/deletemechanic')
+@userAuthenticated
 def deletemechanic():
     mechanicRequest = request.args.get('mechanic')
     mechanic = Mechanic.query.filter_by(name=mechanicRequest).first()
@@ -222,10 +209,8 @@ def deletemechanic():
         return redirect(url_for('mechanics'))
 
 @app.route('/mechanicprofile')
+@userAuthenticated
 def mechanicprofile():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
 
     mechanicRequest = request.args.get('mechanic')
     mechanic = Mechanic.query.filter_by(name=mechanicRequest).first()
@@ -236,6 +221,7 @@ def mechanicprofile():
 
 
 @app.route('/deletedriver')
+@userAuthenticated
 def deletedriver():
     driverRequest = request.args.get('driver')
     driver = Driver.query.filter_by(name=driverRequest).first()
@@ -280,10 +266,8 @@ def login():
     return render_template('login.html', title='Login', form=form)
 
 @app.route('/addDriver', methods=['GET', 'POST'])
+@userAuthenticated
 def addDriver():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
     form = DriverForm()
     if form.validate_on_submit():
         driver = Driver(name=form.name.data, age=form.age.data, salary=form.salary.data,
@@ -305,10 +289,8 @@ def addDriver():
     return render_template('addDriver.html', form=form)
 
 @app.route('/addVehicle', methods=['GET', 'POST'])
+@userAuthenticated
 def addVehicle():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
 
     form = VehicleForm()
     if form.validate_on_submit():
@@ -331,10 +313,8 @@ def addVehicle():
     return render_template('addVehicle.html', form=form)
 
 @app.route('/addMechanic', methods=['GET', 'POST'])
+@userAuthenticated
 def addMechanic():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
     form = MechanicForm()
     if form.validate_on_submit():
         mechanic = Mechanic(name=form.name.data, age=form.age.data,
@@ -355,10 +335,9 @@ def addMechanic():
     return render_template('addMechanic.html', form=form)
 
 @app.route('/addParcels', methods=['GET', 'POST'])
+@userAuthenticated
 def addParcels():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
+
     form = ParcelsForm()
     if form.validate_on_submit():
         driver_id = VehicleForm.driverIdLook(form.driver_id.data)
