@@ -7,9 +7,10 @@ from serverFlask.forms import (RegistrationForm, LoginForm, DriverForm, VehicleF
                                UpdateVehicleForm)
 from serverFlask.models import User, Driver, Mechanic, Vehicle, ParcelsModel, Notes
 from serverFlask import app, db, bcrypt, register_user_code
-from flask_login import login_user, current_user, logout_user
+from flask_login import login_user, current_user, logout_user, login_required
 from werkzeug.utils import secure_filename
 from sqlalchemy.exc import IntegrityError
+from test import userAuthenticated
 
 @app.route('/')
 @app.route('/home') # home is the front page when not logged
@@ -19,10 +20,8 @@ def home():
     return render_template('home.html', methods=['GET', 'POST'])
 
 @app.route('/vehicles', methods=['GET', 'POST'])
+@userAuthenticated
 def vehicles():
-    if not current_user.is_authenticated:
-        flash('Login needed to access the information', category='danger')
-        return redirect(url_for('home'))
     vehicle = Vehicle.query.all()
     return render_template('vehicles.html', vehicles=vehicle)
 
