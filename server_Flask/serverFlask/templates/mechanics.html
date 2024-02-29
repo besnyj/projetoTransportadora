@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
 <br>
-        <table style="align-items: center">
+<div>
+    <table style="align-items: center" class="table table-dark table-striped" method="POST">
         <tr>
-            <th colspan="8">Mechanics</th>
+            <th colspan="8">MECHANICS</th>
         </tr>
         <tr>
             <th>Name</th>
@@ -32,12 +33,17 @@
                     <img class="rounded-circle account-img" src="{{ mechanicPic }}{{ mechanic.id }}.png">
                 </td>
                 <td>
-                    <a href="{{ url_for('updatemechanic') }}?mechanic={{mechanic.name}}" class="btn btn-info btn-sm active" role="button" aria-pressed="true">Update info</a>
-                    <a href="{{ url_for('deletemechanic') }}?mechanic={{mechanic.name}}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Delete Mechanic</a>
+                    <p>
+                        <a href="{{ url_for('updatemechanic') }}?mechanic={{mechanic.name}}" class="btn btn-info btn-sm active" role="button" aria-pressed="true">Update info</a>
+                    </p>
+                    <p>
+                        <a href="{{ url_for('deletemechanic') }}?mechanic={{mechanic.name}}" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Delete Mechanic</a>
+                    </p>
                 </td>
             </tr>
             {% endfor %}
     </table>
+</div>
 <br>
     <a type="button" class="btn btn-primary" href="{{ url_for('addMechanic') }}">Register New Mechanic</a>
 

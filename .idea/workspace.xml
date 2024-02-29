@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="641876af-8764-4eed-a48c-0a819f26b0c9" name="Changes" comment="flask development">
-      <change afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/updatevehicle.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/instance/workersAndVehicles.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/mechanics.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/mechanics.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_Flask/serverFlask/templates/vehicles.html" beforeDir="false" afterPath="$PROJECT_DIR$/server_Flask/serverFlask/templates/vehicles.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +215,7 @@
       <workItem from="1708627751289" duration="10037000" />
       <workItem from="1708698612155" duration="9054000" />
       <workItem from="1708974077755" duration="398000" />
-      <workItem from="1709168377750" duration="3124000" />
+      <workItem from="1709168377750" duration="3879000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -564,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709171550497</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="flask development">
+      <option name="closed" value="true" />
+      <created>1709172913370</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1709172913370</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
