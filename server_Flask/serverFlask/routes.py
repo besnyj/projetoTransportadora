@@ -180,7 +180,12 @@ def updatemechanic():
 def logged():
     user = User.query.filter_by(email=current_user.email).first()
     notes = Notes.query.all()
-    return render_template('logged.html', user=user, notes=notes)
+    drivers = Driver.query.all()
+    mechanics = Mechanic.query.all()
+    vehicles = Vehicle.query.all()
+    return render_template('logged.html', user=user,
+                           notes=notes, drivers=drivers, mechanics=mechanics,
+                           vehicles=vehicles)
 
 @app.route('/driverprofile', methods=['GET', 'POST'])
 @userAuthenticated
